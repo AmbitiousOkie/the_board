@@ -1,0 +1,21 @@
+.top-pad20 {
+  padding-top: 20px
+}
+
+.top-pad10 {
+  padding-top: 20px
+}
+
+.right-pad30 {
+  padding-right: 10px;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+main {
+  flex: 1 0 auto;
+}
