@@ -3,17 +3,32 @@ var personApp = angular.module('personApp', []);
 
 // Define the `PersonController` controller on the `person` module
 personApp.controller('PersonController', function PersonController($scope) {
-  $scope.person = [
+  $scope.person = {
+    firstName: "Kris",
+    lastName: "Wall"
+  };
+
+  $scope.tabs = [
     {
-      first_name: 'Kris',
-      last_name: 'Wall',
-      twitter: 'https://twitter.com/ambitiousokie',
-      tagline: 'At the space bar...',
-      resume: 'resume',
-      bio: 'bio',
-      organizations: 'organizations',
-      projects: 'projects',
-      events: 'events'
+      name: 'Resume',
+      text: 'resume text'
+    },
+    {
+      name: 'Bio',
+      text: 'bio text'
+    },
+    {
+      name: 'Projects',
+      text: 'projects text'
+    },
+    {
+      name: 'Organizations',
+      text: 'orgs text'
+    },
+    {
+      name: 'Events',
+      text: 'events text'
     }
   ];
+
 });

@@ -103,26 +103,37 @@
 
     <main class="main">
         <div class="container">
-          <h3>{{person.firstName + " " + person.lastName}}</h3>
             <div class="top-pad20 hide-on-med-and-down">
                 <div class="row">
                     <div class="col s12">
                         <ul class="tabs">
-                            <li class="tab col s3" ng-repeat="tab in tabs">
-                                <a href="#{{tab.name}}">{{tab.name}}</a>
+                            <li class="tab col s3">
+                                <a href="#resume">Resume</a>
                             </li>
-
+                            <li class="tab col s3">
+                                <a class="active" href="#test2">Test 2</a>
+                            </li>
+                            <li class="tab col s3 disabled">
+                                <a href="#test3">Disabled Tab</a>
+                            </li>
+                            <li class="tab col s3">
+                                <a href="#test4">Test 4</a>
+                            </li>
                         </ul>
                     </div>
-                    <div id="Resume" class="col s12 flow-text">resume</div>
-                    <div id="Bio" class="col s12 flow-text">bio</div>
-                    <div id="Projects" class="col s12 flow-text">orgs</div>
-                    <div id="Organizations" class="col s12 flow-text">projects</div>
-                    <div id="Events" class="col s12 flow-text">events</div>
+                    <div id="test1" class="col s12">Test 1</div>
+                    <div id="test2" class="col s12">Test 2</div>
+                    <div id="test3" class="col s12">Test 3</div>
+                    <div id="test4" class="col s12">Test 4</div>
                 </div>
             </div>
-
-
+            <h2>{{"Hey" + " there!"}}</h2>
+            <h4 class="center">{{$scope.person.first_name  + $scope.person.last_name}}</h4>
+            <div id="resume" class="col s12 flow-text">resume</div>
+            <div id="bio" class="col s12">bio</div>
+            <div id="organizations" class="col s12">orgs</div>
+            <div id="projects" class="col s12">projects</div>
+            <div id="events" class="col s12">events</div>
         </div>
 
     </main>

@@ -9,6 +9,9 @@
 .right-pad30 {
   padding-right: 10px;
 }
+.left-pad20 {
+  padding-left: 20px
+}
 
 body {
     display: flex;
@@ -19,3 +22,17 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+header, main, footer {
+  padding-left: 240px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+
+/*div {
+  outline: red 1px solid;
+}*/
