@@ -114,11 +114,17 @@
 
                         </ul>
                     </div>
-                    <div id="Resume" class="col s12 flow-text">resume</div>
+
+                    <div ng-repeat="tab in tabs">
+                      <div id="{{tab.name}}" class="col s12 flow-text">
+                        {{tab.text}}
+                      </div>
+                    </div>
+                    <!-- <div id="Resume" class="col s12 flow-text">resume</div>
                     <div id="Bio" class="col s12 flow-text">bio</div>
                     <div id="Projects" class="col s12 flow-text">orgs</div>
                     <div id="Organizations" class="col s12 flow-text">projects</div>
-                    <div id="Events" class="col s12 flow-text">events</div>
+                    <div id="Events" class="col s12 flow-text">events</div> -->
                 </div>
             </div>
 
@@ -140,9 +146,7 @@
                         <li>
                             <a class="grey-text text-lighten-3" href="#!">Link 1</a>
                         </li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                        
                     </ul>
                 </div>
             </div>
@@ -155,7 +159,7 @@
         </div>
     </footer>
     <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript">
         // Initialize collapse button

@@ -22,8 +22,8 @@ personApp.controller('PersonController', function PersonController($scope) {
       text: 'projects text'
     },
     {
-      name: 'Organizations',
-      text: 'orgs text'
+      name: 'Teams',
+      text: 'team text'
     },
     {
       name: 'Events',
