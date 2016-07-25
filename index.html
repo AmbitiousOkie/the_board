@@ -120,8 +120,28 @@
                 <!-- {{state}} -->
 
                 <!-- <div class="col s12 flow-text" ng-repeat="info in tabs" ng-hide="activeTab != info.name"> -->
-                <div class="col s12 flow-text" ng-repeat="info in tabs" ng-hide="state != info.name">
-                    {{info.text}}
+                <div class="row">
+                    <div class="col s12 flow-text" ng-repeat="info in tabs" ng-hide="state != info.name">
+                        <div class="row">
+                            <div class="col s12 m8 offset-m2 l6 offset-l3">
+                                <div class="card-panel grey lighten-5 z-depth-1">
+                                    <div class="row valign-wrapper">
+                                        <div class="col s2">
+                                            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/idiot/73.jpg" alt="" class="circle responsive-img">
+                                            <!-- notice the "circle" class -->
+                                        </div>
+                                        <div class="col s10">
+                                            <h4>{{info.name}}</h4>
+                                            <span>
+                                                {{info.text}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
 
