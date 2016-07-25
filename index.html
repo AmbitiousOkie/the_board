@@ -11,10 +11,12 @@
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <script src="js/angular.js"></script>
+
         <script src="js/app.js"></script>
+        <script src="js/data-view.component.js"></script>
     </head>
 
-    <body ng-controller="PersonController">
+    <body>
 
         <header>
             <nav class="indigo lighten-1">
@@ -23,24 +25,32 @@
                         <a href="#" class="brand-logo white-text">Logo</a>
                     </div>
 
-                    <a href="#" data-activates="nav-mobile" class="button-collapse left-pad20"><i class="material-icons">menu</i></a>
+                    <a href="#" data-activates="nav-mobile" class="button-collapse left-pad20">
+                        <i class="material-icons">menu</i>
+                    </a>
                     <ul class="right">
-                        <li class="right-pad30"><a href="#"><h5>Account</h5></a></li>
+                        <li class="right-pad30">
+                            <a href="#">
+                                <h5>Account</h5>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
 
-            <ul id="nav-mobile" class="side-nav fixed">
+            <ul id="nav-mobile" class="side-nav fixed" ng-controller="smallNavController">
                 <div class="container center top-pad20">
                     <img class="circle responsive-img" src="https://pbs.twimg.com/profile_images/713461396835414016/Jxjm2uQ5_400x400.jpg">
                 </div>
-                <h4 class="center">Kris Wall</h4>
+                <h4 class="center">{{name}}</h4>
                 <h6 class="center">Oklahoma City</h6>
                 <h6 class="center">
                     <em>At the space bar...</em>
                 </h6>
+                <p>
+                    <!-- tabState: {{state}} -->
+                </p>
                 <div class="top-pad20"></div>
-
 
                 <ul>
                     <li class="no-padding hide-on-large-only">
@@ -49,20 +59,8 @@
                                 <a class="collapsible-header  waves-effect waves-teal">About</a>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li>
-                                            <a href="#resume">Resume</a>
-                                        </li>
-                                        <li>
-                                            <a href="#bio">Bio</a>
-                                        </li>
-                                        <li>
-                                            <a href="#organizations">Organizations</a>
-                                        </li>
-                                        <li>
-                                            <a href="#projects">Projects</a>
-                                        </li>
-                                        <li>
-                                            <a href="#events">Events</a>
+                                        <li ng-repeat="info in tabs">
+                                            <a href="#" ng-click="setState(info.name)">{{info.name}}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -82,7 +80,7 @@
                                             <a href="grid.html">Twitter</a>
                                         </li>
                                         <li>
-                                            <a href="helpers.html">Facebook</a>
+                                            <a href="helper s.html">Facebook</a>
                                         </li>
                                         <li>
                                             <a href="helpers.html">E-mail</a>
@@ -103,31 +101,29 @@
 
     <main class="main">
         <div class="container">
-          <h3>{{person.firstName + " " + person.lastName}}</h3>
-            <div class="top-pad20 hide-on-med-and-down">
+            <h3>{{person.firstName + " " + person.lastName}}</h3>
+            <p></p>
+            <div class="top-pad20 hide-on-med-and-down" ng-controller="largeNavController">
+                <!-- tabState: {{state}} -->
                 <div class="row">
                     <div class="col s12">
                         <ul class="tabs">
-                            <li class="tab col s3" ng-repeat="tab in tabs">
-                                <a href="#{{tab.name}}">{{tab.name}}</a>
+                            <li class="tab col s3" ng-repeat="info in tabs">
+                                <a href="#" ng-click="setState(info.name)">{{info.name}}</a>
                             </li>
-
                         </ul>
                     </div>
-
-                    <div ng-repeat="tab in tabs">
-                      <div id="{{tab.name}}" class="col s12 flow-text">
-                        {{tab.text}}
-                      </div>
-                    </div>
-                    <!-- <div id="Resume" class="col s12 flow-text">resume</div>
-                    <div id="Bio" class="col s12 flow-text">bio</div>
-                    <div id="Projects" class="col s12 flow-text">orgs</div>
-                    <div id="Organizations" class="col s12 flow-text">projects</div>
-                    <div id="Events" class="col s12 flow-text">events</div> -->
                 </div>
             </div>
 
+            <div ng-controller="dataViewController">
+                <!-- {{state}} -->
+
+                <!-- <div class="col s12 flow-text" ng-repeat="info in tabs" ng-hide="activeTab != info.name"> -->
+                <div class="col s12 flow-text" ng-repeat="info in tabs" ng-hide="state != info.name">
+                    {{info.text}}
+                </div>
+            </div>
 
         </div>
 
@@ -146,7 +142,7 @@
                         <li>
                             <a class="grey-text text-lighten-3" href="#!">Link 1</a>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>
@@ -165,6 +161,7 @@
         // Initialize collapse button
         $(".button-collapse").sideNav();
         // Show sideNav $('.button-collapse').sideNav('show'); // Hide sideNav $('.button-collapse').sideNav('hide');
+        $('ul.tabs').tabs();
     </script>
 </body>
 

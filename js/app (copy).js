@@ -95,8 +95,5 @@ personApp.controller('dataViewController', function dataViewController($scope, p
         console.log('Local 3 ' + $scope.state);
     });
 
-		$scope.getTabs = personService.getTabs;
-		$scope.tabs = $scope.getTabs();
-
-
+    
 });
