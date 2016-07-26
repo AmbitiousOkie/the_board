@@ -91,6 +91,10 @@ personApp.factory('personService', function() {
             }]
 
 
+        },
+        bio: {
+          text: 'This is my life story.  Stay awhile and listen.  Snakes on a plane, muthafooka. Yeah, that is right.  I said it.  Whaddya gonna do? Go again? Sure, that sounds like a great idea.  You should have said that before. Uhuh.. You first.',
+          website: 'http://google.com'
         }
     };
 
