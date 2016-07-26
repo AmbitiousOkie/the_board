@@ -13,13 +13,26 @@ personApp.factory('personService', function() {
         github: 'https://github.com/AmbitiousOkie',
         facebook: false,
         twitter: 'https://twitter.com/ambitiousokie',
-        email: 'kris@urbanscouter.com'
+        email: 'kris@urbanscouter.com',
+        resume: {
+          objective: 'This is my objective',
+          currentEmp: {
+            name: 'Freelance',
+            startMonth: 'April',
+            startYear: '2008',
+            roles: [
+              'Role 1',
+              'Role 2'
+            ]
+          }
+
+        }
     };
 
     var tabs = [{
         name: 'Resume',
         text: 'This is the resume',
-				imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/idiot/73.jpg'
+        imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/idiot/73.jpg'
     }, {
         name: 'Bio',
         text: 'This is the bio'
@@ -34,14 +47,11 @@ personApp.factory('personService', function() {
         text: 'This is the events'
     }];
 
-    var groups = [
-      {
+    var groups = [{
         name: 'OKC Digital Creators'
-      },
-      {
+    }, {
         name: 'The Irregulars'
-      }
-    ];
+    }];
 
     //  ---- Getters--------------------
     function getState() {
@@ -52,9 +62,9 @@ personApp.factory('personService', function() {
         return person;
     }
 
-		function getTabs() {
-			return tabs;
-		}
+    function getTabs() {
+        return tabs;
+    }
 
     // Setters ---------------------------
     function setState(newState) {
@@ -66,7 +76,7 @@ personApp.factory('personService', function() {
         getState: getState,
         setState: setState,
         getPerson: getPerson,
-				getTabs:getTabs
+        getTabs: getTabs
     }
 });
 
@@ -80,13 +90,11 @@ personApp.controller('smallNavController', function smallNavController($scope, p
         return personService.getState();
     }, function(value) {
         $scope.state = value;
-        console.log('Local 1 ' + $scope.state);
     });
 
     $scope.setState = personService.setState;
-		$scope.getTabs = personService.getTabs;
-		$scope.tabs = $scope.getTabs();
-		console.log('tabs:' + $scope.tabs);
+    $scope.getTabs = personService.getTabs;
+    $scope.tabs = $scope.getTabs();
 
     $scope.person = personService.getPerson();
 
@@ -98,13 +106,13 @@ personApp.controller('largeNavController', function largeNavController($scope, p
         return personService.getState();
     }, function(value) {
         $scope.state = value;
-        console.log('Local 2 ' + $scope.state);
+
     });
 
-		$scope.setState = personService.setState;
-		$scope.getTabs = personService.getTabs;
-		$scope.tabs = $scope.getTabs();
-		console.log('tabs:' + $scope.tabs);
+    $scope.setState = personService.setState;
+    $scope.getTabs = personService.getTabs;
+    $scope.tabs = $scope.getTabs();
+
 });
 
 personApp.controller('dataViewController', function dataViewController($scope, personService) {
@@ -112,11 +120,11 @@ personApp.controller('dataViewController', function dataViewController($scope, p
         return personService.getState();
     }, function(value) {
         $scope.state = value;
-        console.log('Local 3 ' + $scope.state);
+
     });
 
-		$scope.getTabs = personService.getTabs;
-		$scope.tabs = $scope.getTabs();
+    $scope.getTabs = personService.getTabs;
+    $scope.tabs = $scope.getTabs();
     $scope.person = personService.getPerson();
 
 
