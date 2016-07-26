@@ -12,6 +12,15 @@
 .left-pad20 {
   padding-left: 20px
 }
+.right-pad10 {
+  padding-right: 10px;
+}
+.right-pad20 {
+  padding-right: 10px;
+}
+.date-size {
+  font-size: 16px;
+}
 
 body {
     display: flex;

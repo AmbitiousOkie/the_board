@@ -120,10 +120,97 @@
                 <div class="" ng-hide="state != 'Resume'">
                     <h5 class="center hide-on-large-only">{{state}}</h5>
 
-                    <div class="">
-                        data
+                    <h4>Current employment</h4>
+
+                    <div class="row right-pad20 left-pad20">
+                      <div class="col s12" ng-repeat="current in person.resume.currentEmp">
+                        <div class="card horizontal hoverable">
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <h5 class="truncate">{{current.name}}  <span class="right right-pad10 date-size"><em>{{current.startMonth + ' ' + current.startYear}}</em></span></h5>
+                                    <div class="left-pad20">
+                                      <b>{{current.role}}</b><br>
+                                      <em class="left-pad20" ng-repeat="resp in current.resps">{{resp}}<br></em>
+                                    </div>
+
+                                </div>
+                                <div class="card-action">
+                                    <a href="{{current.website}}">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
                     </div>
+
+
+                    <h4>Education</h4>
+
+                    <div class="row right-pad20 left-pad20">
+                      <div class="col s12" ng-repeat="school in person.resume.education">
+                        <div class="card horizontal hoverable">
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <h5 class="truncate">{{school.name}}  <span class="right right-pad10 date-size"><em>{{school.completion}}</em></span></h5>
+                                    <div class="left-pad20">
+                                      <b>{{school.degree}}</b><br>
+                                      <em class="truncate">{{school.city + ', ' + school.state}}</em>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    <h4>Past Employment</h4>
+
+                    <div class="row right-pad20 left-pad20">
+                      <div class="col s12" ng-repeat="past in person.resume.pastEmp">
+                        <div class="card horizontal hoverable">
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <h5 class="truncate">{{past.name}}  <span class="right right-pad10 date-size"><em>{{past.startMonth + ' ' + past.startYear}}</em></span></h5>
+                                    <div class="left-pad20">
+                                      <b>{{past.role}}</b><br>
+                                      <em class="left-pad20" ng-repeat="resp in past.resps">{{resp}}<br></em>
+                                    </div>
+
+                                </div>
+                                <div class="card-action">
+                                    <a href="{{past.website}}">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <h4>Community Experience</h4>
+
+                    <div class="row right-pad20 left-pad20">
+                      <div class="col s12" ng-repeat="comm in person.resume.community">
+                        <div class="card horizontal hoverable">
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <h5 class="truncate">{{comm.name}}  <span class="right right-pad10 date-size"><em>{{comm.startYear + ' - ' + comm.endYear}}</em></span></h5>
+                                    <div class="left-pad20">
+                                      <b>{{comm.role}}</b><br>
+                                      <em class="left-pad20" ng-repeat="resp in comm.resps">{{resp}}<br></em>
+                                    </div>
+
+                                </div>
+                                <div class="card-action">
+                                    <a href="{{comm.website}}">Website</a>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
                 </div>
+
                 <div class="" ng-hide="state != 'Bio'">
                     <h5 class="center hide-on-large-only">{{state}}</h5>
 

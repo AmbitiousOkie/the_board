@@ -15,16 +15,81 @@ personApp.factory('personService', function() {
         twitter: 'https://twitter.com/ambitiousokie',
         email: 'kris@urbanscouter.com',
         resume: {
-          objective: 'This is my objective',
-          currentEmp: {
-            name: 'Freelance',
-            startMonth: 'April',
-            startYear: '2008',
-            roles: [
-              'Role 1',
-              'Role 2'
-            ]
-          }
+
+            objective: 'This is my objective',
+            currentEmp: [{
+                name: 'Stellarwinds Studios',
+                role: 'Designer',
+                startMonth: 'April',
+                startYear: '2016',
+                resps: [
+                    'Web design',
+                    'Graphic design',
+                    'Photography',
+                    'Oh god, it is so long, please stop typing. youalsdif asdfj dsfjasf kjaf kjdafkj dafk jafkja sdjsl fkasdas j;fjas dfk jasdfjlka'
+                ],
+                website: 'http://stellarwinds.io'
+            } ],
+            education: [{
+                name: 'Oklahoma University',
+                city: 'Norman',
+                state: 'Oklahoma',
+                degree: 'Computer Science',
+                completion: '2019'
+            }, {
+                name: 'Oklahoma State University',
+                city: 'Oklahoma City',
+                state: 'Oklahoma',
+                degree: 'MIS',
+                completion: '2017'
+            }],
+            pastEmp: [{
+                name: 'Sleepy',
+                role: 'Designer',
+                startMonth: 'April',
+                startYear: '2016',
+                resps: [
+                    'Web design',
+                    'Graphic design',
+                    'Photography',
+                    'Oh god, it is so long, please stop typing. youalsdif asdfj dsfjasf kjaf kjdafkj dafk jafkja sdjsl fkasdas j;fjas dfk jasdfjlka'
+                ],
+                website: 'http://stellarwinds.io'
+            }, {
+                name: 'Gehr Innovation Company, LLC',
+                role: 'Lead Consultant',
+                startMonth: 'April',
+                startYear: '2008',
+                resps: [
+                    'Fix stuff',
+                    'Consult on stuff'
+                ],
+                website: 'http://gehric.com'
+            }],
+            community: [{
+                name: 'Oklahoma City Ethical Hackers',
+                role: 'Creator',
+                startYear: '2013',
+                endYear: 'Current',
+                resps: [
+                    'Web design',
+                    'Graphic design',
+                    'Photography',
+                    'Oh god, it is so long, please stop typing. youalsdif asdfj dsfjasf kjaf kjdafkj dafk jafkja sdjsl fkasdas j;fjas dfk jasdfjlka'
+                ],
+                website: 'https://www.meetup.com/TheIrregulars405/'
+            }, {
+                name: 'Oklahoma City Digital Creators',
+                role: 'Creator',
+                startYear: '2016',
+                endYear: 'Current',
+                resps: [
+                    'Talk about stuff',
+                    'Consult on stuff'
+                ],
+                website: 'https://www.meetup.com/Oklahoma-City-Digital-Creators/'
+            }]
+
 
         }
     };
