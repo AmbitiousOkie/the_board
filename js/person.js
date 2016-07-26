@@ -29,7 +29,7 @@ personApp.factory('personService', function() {
                     'Oh god, it is so long, please stop typing. youalsdif asdfj dsfjasf kjaf kjdafkj dafk jafkja sdjsl fkasdas j;fjas dfk jasdfjlka'
                 ],
                 website: 'http://stellarwinds.io'
-            } ],
+            }],
             education: [{
                 name: 'Oklahoma University',
                 city: 'Norman',
@@ -89,13 +89,51 @@ personApp.factory('personService', function() {
                 ],
                 website: 'https://www.meetup.com/Oklahoma-City-Digital-Creators/'
             }]
-
-
         },
         bio: {
-          text: 'This is my life story.  Stay awhile and listen.  Snakes on a plane, muthafooka. Yeah, that is right.  I said it.  Whaddya gonna do? Go again? Sure, that sounds like a great idea.  You should have said that before. Uhuh.. You first.',
-          website: 'http://google.com'
-        }
+            text: 'This is my life story.  Stay awhile and listen.  Snakes on a plane, muthafooka. Yeah, that is right.  I said it.  Whaddya gonna do? Go again? Sure, that sounds like a great idea.  You should have said that before. Uhuh.. You first.',
+            website: 'http://google.com'
+        },
+        projects: [
+          {
+            name: 'The Board',
+            text: 'Building a bulletin board',
+            image: 'http://stellarwinds.io/images/promo.png',
+            website: 'http://stellarwinds.io/the_board/'
+          },
+          {
+            name: 'The Board',
+            text: 'Building a bulletin board',
+            image: 'http://stellarwinds.io/images/logo-example-full.png',
+            website: 'http://stellarwinds.io/the_board/'
+          },
+          {
+            name: 'The Board',
+            text: 'Building a bulletin board',
+            image: 'http://stellarwinds.io/images/patent.png',
+            website: 'http://stellarwinds.io/the_board/'
+          }
+        ],
+        teams: [
+          {
+            name: 'Stellarwinds Studios',
+            text: 'Beautify everything',
+            image: 'http://stellarwinds.io/images/photos/photo1.jpg',
+            website: 'http://stellarwinds.io/'
+          },
+          {
+            name: 'Stellarwinds Studios',
+            text: 'Beautify everything',
+            image: 'http://stellarwinds.io/images/photos/photo12.jpg',
+            website: 'http://stellarwinds.io/'
+          },
+          {
+            name: 'Stellarwinds Studios',
+            text: 'Beautify everything',
+            image: 'http://stellarwinds.io/images/photos/photo3.jpg',
+            website: 'http://stellarwinds.io/'
+          }
+        ]
     };
 
     var tabs = [{

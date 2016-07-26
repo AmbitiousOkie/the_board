@@ -213,86 +213,112 @@
                 <div class="" ng-hide="state != 'Bio'">
                     <!-- <h5 class="center hide-on-large-only">{{state}}</h5> -->
                     <h4>About me</h4>
-                    <div class="row right-pad20 left-pad20">
+                    <div class="row">
                         <div class="col s12">
                             <div class="card horizontal hoverable">
                                 <div class="card-stacked">
                                     <div class="card-content">
                                         <p>
-                                          {{person.bio.text}}
+                                            {{person.bio.text}}
                                         </p>
-                                        </h5>
-                                    </div>
-                                    <div class="card-action">
-                                        <a ng-href="{{person.bio.website}}">Personal Site</a>
-                                    </div>
+                                    </h5>
+                                </div>
+                                <div class="card-action">
+                                    <a ng-href="{{person.bio.website}}">Personal Site</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="" ng-hide="state != 'Projects'">
-                    <h5 class="center hide-on-large-only">{{state}}</h5>
-
-                    <div class="">
-                        data
-                    </div>
-                </div>
-                <div class="" ng-hide="state != 'Teams'">
-                    <h5 class="center hide-on-large-only">{{state}}</h5>
-
-                    <div class="">
-                        data
-                    </div>
-                </div>
-                <div class="" ng-hide="state != 'Events'">
-                    <h5 class="center hide-on-large-only">{{state}}</h5>
-
-                    <div class="">
-                        data
+            </div>
+            <div class="" ng-hide="state != 'Projects'">
+                <h5 class="center hide-on-large-only">{{state}}</h5>
+                <div class="row">
+                    <div class="col s12 m4" ng-repeat="project in person.projects">
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="responsive-img" ng-src="{{project.image}}">
+                            </div>
+                            <div class="card-content">
+                                <h5>{{project.name}}</h5>
+                                <p>{{project.text}}</p>
+                            </div>
+                            <div class="card-action">
+                                <a ng-href="{{project.website}}">Website</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
+            <div class="" ng-hide="state != 'Teams'">
+                <h5 class="center hide-on-large-only">{{state}}</h5>
+                <div class="row">
+                    <div class="col s12 m4" ng-repeat="team in person.teams">
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="responsive-img" ng-src="{{team.image}}">
+                            </div>
+
+                            <div class="card-content">
+                                <h5>{{team.name}}</h5>
+                                <p>{{team.text}}</p>
+                            </div>
+                            <div class="card-action">
+                                <a ng-href="{{team.website}}">Website</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="" ng-hide="state != 'Events'">
+                <h5 class="center hide-on-large-only">{{state}}</h5>
+
+                <div class="">
+                    data
+                </div>
+            </div>
 
         </div>
 
-    </main>
-    <footer class="page-footer indigo lighten-1">
+    </div>
 
+</main>
+<footer class="page-footer indigo lighten-1">
+
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li>
+                        <a class="grey-text text-lighten-3" href="#">Link 1</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
         <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li>
-                            <a class="grey-text text-lighten-3" href="#">Link 1</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
+            © 2016 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#">More Links</a>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2016 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#">More Links</a>
-            </div>
-        </div>
-    </footer>
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript">
-        // Initialize collapse button
-        $(".button-collapse").sideNav();
-        // Show sideNav $('.button-collapse').sideNav('show'); // Hide sideNav $('.button-collapse').sideNav('hide');
-        $('ul.tabs').tabs();
-    </script>
+    </div>
+</footer>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript">
+    // Initialize collapse button
+    $(".button-collapse").sideNav();
+    // Show sideNav $('.button-collapse').sideNav('show'); // Hide sideNav $('.button-collapse').sideNav('hide');
+    $('ul.tabs').tabs();
+</script>
 </body>
 
 </html>
