@@ -40,12 +40,12 @@
 
             <ul id="nav-mobile" class="side-nav fixed" ng-controller="smallNavController">
                 <div class="container center top-pad20">
-                    <img class="circle responsive-img" src="https://pbs.twimg.com/profile_images/713461396835414016/Jxjm2uQ5_400x400.jpg">
+                    <img class="circle responsive-img" ng-src="{{person.image}}">
                 </div>
-                <h4 class="center">{{name}}</h4>
-                <h6 class="center">Oklahoma City</h6>
+                <h4 class="center">{{person.firstName + ' ' + person.lastName}}</h4>
+                <h6 class="center">{{person.city}}</h6>
                 <h6 class="center">
-                    <em>At the space bar...</em>
+                    <em>{{person.tagLine}}</em>
                 </h6>
                 <p>
                     <!-- tabState: {{state}} -->
@@ -74,16 +74,16 @@
                                 <div class="collapsible-body">
                                     <ul>
                                         <li>
-                                            <a href="color.html">Github</a>
+                                            <a ng-show="person.github" ng-href="{{person.github}}">Github</a>
                                         </li>
                                         <li>
-                                            <a href="grid.html">Twitter</a>
+                                            <a ng-show="person.facebook" ng-href="{{person.facebook}}">Facebook</a>
                                         </li>
                                         <li>
-                                            <a href="helper s.html">Facebook</a>
+                                            <a ng-show="person.twitter" ng-href="{{person.twitter}}">Twitter</a>
                                         </li>
                                         <li>
-                                            <a href="helpers.html">E-mail</a>
+                                            <a ng-show="person.email" ng-href="mailto:{{person.email}}">E-mail</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -101,14 +101,13 @@
 
     <main class="main">
         <div class="container">
-            <h3>{{person.firstName + " " + person.lastName}}</h3>
-            <p></p>
             <div class="top-pad20 hide-on-med-and-down" ng-controller="largeNavController">
-                <!-- tabState: {{state}} -->
+
                 <div class="row">
                     <div class="col s12">
                         <ul class="tabs">
-                            <li class="tab col s3" ng-repeat="info in tabs">
+                            <!-- BUG - Active Tab doesn't follow between mobile to desktop -->
+                            <li class="tab col s3" ng-repeat="info in tabs" ng-class="{'active': info.state == state}">
                                 <a href="#" ng-click="setState(info.name)">{{info.name}}</a>
                             </li>
                         </ul>
@@ -117,32 +116,43 @@
             </div>
 
             <div ng-controller="dataViewController">
-                <!-- {{state}} -->
+                <h4 class="center hide-on-large-only">{{person.firstName + ' ' + person.lastName}}</h4>
+                <div class="" ng-hide="state != 'Resume'">
+                    <h5 class="center hide-on-large-only">{{state}}</h5>
 
-                <!-- <div class="col s12 flow-text" ng-repeat="info in tabs" ng-hide="activeTab != info.name"> -->
-                <div class="row">
-                    <div class="col s12 flow-text" ng-repeat="info in tabs" ng-hide="state != info.name">
-                        <div class="row">
-                            <div class="col s12 m8 offset-m2 l6 offset-l3">
-                                <div class="card-panel grey lighten-5 z-depth-1">
-                                    <div class="row valign-wrapper">
-                                        <div class="col s2">
-                                            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/idiot/73.jpg" alt="" class="circle responsive-img">
-                                            <!-- notice the "circle" class -->
-                                        </div>
-                                        <div class="col s10">
-                                            <h4>{{info.name}}</h4>
-                                            <span>
-                                                {{info.text}}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div class="">
+                        data
                     </div>
                 </div>
+                <div class="" ng-hide="state != 'Bio'">
+                    <h5 class="center hide-on-large-only">{{state}}</h5>
+
+                    <div class="">
+                        data
+                    </div>
+                </div>
+                <div class="" ng-hide="state != 'Projects'">
+                    <h5 class="center hide-on-large-only">{{state}}</h5>
+
+                    <div class="">
+                        data
+                    </div>
+                </div>
+                <div class="" ng-hide="state != 'Teams'">
+                    <h5 class="center hide-on-large-only">{{state}}</h5>
+
+                    <div class="">
+                        data
+                    </div>
+                </div>
+                <div class="" ng-hide="state != 'Events'">
+                    <h5 class="center hide-on-large-only">{{state}}</h5>
+
+                    <div class="">
+                        data
+                    </div>
+                </div>
+
             </div>
 
         </div>

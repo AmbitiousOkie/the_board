@@ -6,12 +6,20 @@ personApp.factory('personService', function() {
 
     var person = {
         firstName: "Kris",
-        lastName: "Wall"
+        lastName: "Wall",
+        image: 'https://pbs.twimg.com/profile_images/713461396835414016/Jxjm2uQ5_400x400.jpg',
+        city: 'Oklahoma City',
+        tagLine: 'At the space bar...',
+        github: 'https://github.com/AmbitiousOkie',
+        facebook: false,
+        twitter: 'https://twitter.com/ambitiousokie',
+        email: 'kris@urbanscouter.com'
     };
 
     var tabs = [{
         name: 'Resume',
-        text: 'This is the resume'
+        text: 'This is the resume',
+				imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/idiot/73.jpg'
     }, {
         name: 'Bio',
         text: 'This is the bio'
@@ -24,14 +32,23 @@ personApp.factory('personService', function() {
     }, {
         name: 'Events',
         text: 'This is the events'
-    }, ];
+    }];
+
+    var groups = [
+      {
+        name: 'OKC Digital Creators'
+      },
+      {
+        name: 'The Irregulars'
+      }
+    ];
 
     //  ---- Getters--------------------
     function getState() {
         return state;
     }
 
-    function getName() {
+    function getPerson() {
         return person;
     }
 
@@ -48,7 +65,7 @@ personApp.factory('personService', function() {
     return {
         getState: getState,
         setState: setState,
-        getName: getName,
+        getPerson: getPerson,
 				getTabs:getTabs
     }
 });
@@ -70,6 +87,9 @@ personApp.controller('smallNavController', function smallNavController($scope, p
 		$scope.getTabs = personService.getTabs;
 		$scope.tabs = $scope.getTabs();
 		console.log('tabs:' + $scope.tabs);
+
+    $scope.person = personService.getPerson();
+
 
 });
 
@@ -97,6 +117,7 @@ personApp.controller('dataViewController', function dataViewController($scope, p
 
 		$scope.getTabs = personService.getTabs;
 		$scope.tabs = $scope.getTabs();
+    $scope.person = personService.getPerson();
 
 
 });
