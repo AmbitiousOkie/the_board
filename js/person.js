@@ -144,6 +144,8 @@ personApp.factory('personService', function() {
         }]
     };
 
+
+
     var tabs = [{
         name: 'Resume',
         text: 'This is the resume',
@@ -198,7 +200,7 @@ personApp.factory('personService', function() {
 
 
 // Define the `PersonController` controller on the `person` module
-personApp.controller('smallNavController', function smallNavController($scope, personService) {
+personApp.controller('smallNavController', function smallNavController($scope, personService, navService) {
     $scope.$watch(function() {
         return personService.getState();
     }, function(value) {
