@@ -4,6 +4,8 @@
     <head>
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> -->
+
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
         <link rel="stylesheet" href="css/board.css" media="screen,projection" charset="utf-8">
@@ -19,7 +21,7 @@
     <body>
 
         <header>
-            <nav class="indigo lighten-1">
+            <nav class="teal darken-3">
                 <div class="nav-wrapper flow-text">
                     <div class="container">
                         <a href="#" class="brand-logo white-text">Logo</a>
@@ -99,13 +101,13 @@
 
     </header>
 
-    <main class="main">
+    <main class="main blue-grey lighten-5">
         <div class="container">
             <div class="top-pad20 hide-on-med-and-down" ng-controller="largeNavController">
 
                 <div class="row">
                     <div class="col s12">
-                        <ul class="tabs">
+                        <ul class="tabs blue-grey lighten-5">
                             <!-- BUG - Active Tab doesn't follow between mobile to desktop -->
                             <li class="tab col s3" ng-repeat="info in tabs" ng-class="{'active': info.state == state}">
                                 <a href="#" ng-click="setState(info.name)">{{info.name}}</a>
@@ -122,7 +124,7 @@
                     <h4>Current employment</h4>
                     <div class="row right-pad20 left-pad20">
                         <div class="col s12" ng-repeat="current in person.resume.currentEmp">
-                            <div class="card horizontal hoverable">
+                            <div class="card horizontal hoverable ">
                                 <div class="card-stacked">
                                     <div class="card-content">
                                         <h5 class="truncate">{{current.name}}
@@ -274,8 +276,21 @@
             <div class="" ng-hide="state != 'Events'">
                 <h5 class="center hide-on-large-only">{{state}}</h5>
 
-                <div class="">
-                    data
+                <div class="row">
+                    <div class="col s12 m4" ng-repeat="event in person.events">
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="responsive-img" ng-src="{{event.image}}">
+                            </div>
+                            <div class="card-content">
+                                <h5>{{event.name}}</h5>
+                                <p>{{event.text}}</p>
+                            </div>
+                            <div class="card-action">
+                                <a ng-href="{{event.website}}">Website</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -284,9 +299,9 @@
     </div>
 
 </main>
-<footer class="page-footer indigo lighten-1">
+<footer class="page-footer teal darken-3">
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">Footer Content</h5>
@@ -302,11 +317,11 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="footer-copyright">
         <div class="container">
-            © 2016 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#">More Links</a>
+            <strong>© 2016 Copyright Text </strong>
+            <a class="grey-text text-lighten-4 right" href="#"><strong>More Links</strong></a>
         </div>
     </div>
 </footer>

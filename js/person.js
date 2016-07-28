@@ -133,6 +133,26 @@ personApp.factory('personService', function() {
             image: 'http://stellarwinds.io/images/photos/photo3.jpg',
             website: 'http://stellarwinds.io/'
           }
+        ],
+        events: [
+          {
+            name: 'Event 1',
+            text: 'Building a bulletin board',
+            image: 'http://stellarwinds.io/images/photos/photo15.jpg',
+            website: 'http://stellarwinds.io/the_board/'
+          },
+          {
+            name: 'Event 2',
+            text: 'Building a bulletin board',
+            image: 'http://stellarwinds.io/images/photos/photo14.jpg',
+            website: 'http://stellarwinds.io/the_board/'
+          },
+          {
+            name: 'Event 3',
+            text: 'Building a bulletin board',
+            image: 'http://stellarwinds.io/images/photos/photo1.jpg',
+            website: 'http://stellarwinds.io/the_board/'
+          }
         ]
     };
 
