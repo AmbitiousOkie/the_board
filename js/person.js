@@ -2,7 +2,7 @@
 var personApp = angular.module('personApp', []);
 
 personApp.factory('personService', function() {
-    var state = 'Resume';
+
 
     var person = {
         firstName: "Kris",
@@ -171,75 +171,34 @@ personApp.factory('personService', function() {
     }];
 
     //  ---- Getters--------------------
-    function getState() {
-        return state;
-    }
+
 
     function getPerson() {
         return person;
     }
 
-    function getTabs() {
-        return tabs;
-    }
+
 
     // Setters ---------------------------
-    function setState(newState) {
-        state = newState;
-    }
+
 
     // Factory returns -----------------------
     return {
-        getState: getState,
-        setState: setState,
-        getPerson: getPerson,
-        getTabs: getTabs
+        getPerson: getPerson
     }
 });
 
 
-
-// Define the `PersonController` controller on the `person` module
-personApp.controller('smallNavController', function smallNavController($scope, personService, navService) {
+personApp.controller('dataViewController', function dataViewController($scope, personService, navService) {
     $scope.$watch(function() {
-        return personService.getState();
-    }, function(value) {
-        $scope.state = value;
-    });
-
-    $scope.setState = personService.setState;
-    $scope.getTabs = personService.getTabs;
-    $scope.tabs = $scope.getTabs();
-
-    $scope.person = personService.getPerson();
-
-
-});
-
-personApp.controller('largeNavController', function largeNavController($scope, personService) {
-    $scope.$watch(function() {
-        return personService.getState();
+        return navService.getState();
     }, function(value) {
         $scope.state = value;
 
     });
 
-    $scope.setState = personService.setState;
-    $scope.getTabs = personService.getTabs;
-    $scope.tabs = $scope.getTabs();
-
-});
-
-personApp.controller('dataViewController', function dataViewController($scope, personService) {
-    $scope.$watch(function() {
-        return personService.getState();
-    }, function(value) {
-        $scope.state = value;
-
-    });
-
-    $scope.getTabs = personService.getTabs;
-    $scope.tabs = $scope.getTabs();
+    $scope.getPersonTabs = navService.getPersonTabs;
+    $scope.tabs = $scope.getPersonTabs();
     $scope.person = personService.getPerson();
 
 

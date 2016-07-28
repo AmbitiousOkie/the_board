@@ -1,5 +1,7 @@
 personApp.factory('navService', function() {
 
+var state = 'Resume';
+
 var currentTab = 'About';
 
 var navTabs = [
@@ -49,17 +51,64 @@ function getNavTabs() {
     return navTabs;
 }
 
+function getState() {
+    return state;
+}
+
+function getPersonTabs() {
+    return personTabs;
+}
+
 
 // Setters ---------------------------
 function setCurrentTab(newTab) {
     currentTab = newTab;
 }
 
+function setState(newState) {
+    state = newState;
+}
+
 // Factory returns -----------------------
 return {
     currentTab: currentTab,
     navTabs: navTabs,
-    currentTab: currentTab
+    currentTab: currentTab,
+    getState: getState,
+    getPersonTabs: getPersonTabs,
+    setState: setState
 }
+
+});
+
+
+// Define the `PersonController` controller on the `person` module
+personApp.controller('smallNavController', function smallNavController($scope, personService, navService) {
+    $scope.$watch(function() {
+        return navService.getState();
+    }, function(value) {
+        $scope.state = value;
+    });
+
+    $scope.setState = navService.setState;
+    $scope.getPersonTabs = navService.getPersonTabs;
+    $scope.tabs = $scope.getPersonTabs();
+
+    $scope.person = personService.getPerson();
+
+
+});
+
+personApp.controller('largeNavController', function largeNavController($scope, personService, navService) {
+    $scope.$watch(function() {
+        return navService.getState();
+    }, function(value) {
+        $scope.state = value;
+
+    });
+
+    $scope.setState = navService.setState;
+    $scope.getPersonTabs = navService.getPersonTabs;
+    $scope.tabs = $scope.getPersonTabs();
 
 });
