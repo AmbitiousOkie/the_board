@@ -28,13 +28,18 @@
                     <div class="container">
                         <a href="#" class="brand-logo white-text">Logo</a>
                     </div>
-
                     <a href="#" data-activates="nav-mobile" class="button-collapse left-pad20">
                         <i class="material-icons">menu</i>
                     </a>
                     <ul class="right hide-on-med-and-down right-pad30">
 
-                        <!-- Dropdown Trigger -->
+                        <li ng-repeat="navTab in navTabs | filter:true">
+                            <a href="#" data-activates="{{navTab.name}}DropDown">
+                                <strong>
+                                    {{navTab.name}}
+                                </strong>
+                            </a>
+                        </li>
                         <li>
                             <a class="dropdown-button" href="#!" data-activates="aboutMeDropDown">
                                 <strong>
@@ -258,14 +263,16 @@
                                 <img class="activator" ng-src="{{project.image}}">
                             </div>
                             <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">{{project.name}}<i class="material-icons right">more_vert</i>
+                                <span class="card-title activator grey-text text-darken-4">{{project.name}}
+                                    <i class="material-icons right">more_vert</i>
                                 </span>
                                 <p>
                                     <a ng-href="{{project.website}}">Website</a>
                                 </p>
                             </div>
                             <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">{{project.name}}<i class="material-icons right">close</i>
+                                <span class="card-title grey-text text-darken-4">{{project.name}}
+                                    <i class="material-icons right">close</i>
                                 </span>
                                 <p>{{project.text}}</p>
                             </div>
@@ -278,23 +285,25 @@
                 <h5 class="center hide-on-large-only">{{state}}</h5>
                 <div class="row">
                     <div class="col s12 m4" ng-repeat="team in person.teams">
-                      <div class="card">
-                          <div class="card-image waves-effect waves-block waves-light">
-                              <img class="activator" ng-src="{{team.image}}">
-                          </div>
-                          <div class="card-content">
-                              <span class="card-title activator grey-text text-darken-4">{{team.name}}<i class="material-icons right">more_vert</i>
-                              </span>
-                              <p>
-                                  <a ng-href="{{team.website}}">Website</a>
-                              </p>
-                          </div>
-                          <div class="card-reveal">
-                              <span class="card-title grey-text text-darken-4">{{team.name}}<i class="material-icons right">close</i>
-                              </span>
-                              <p>{{team.text}}</p>
-                          </div>
-                      </div>
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" ng-src="{{team.image}}">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">{{team.name}}
+                                    <i class="material-icons right">more_vert</i>
+                                </span>
+                                <p>
+                                    <a ng-href="{{team.website}}">Website</a>
+                                </p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">{{team.name}}
+                                    <i class="material-icons right">close</i>
+                                </span>
+                                <p>{{team.text}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -303,23 +312,25 @@
 
                 <div class="row">
                     <div class="col s12 m4" ng-repeat="event in person.events">
-                      <div class="card">
-                          <div class="card-image waves-effect waves-block waves-light">
-                              <img class="activator" ng-src="{{event.image}}">
-                          </div>
-                          <div class="card-content">
-                              <span class="card-title activator grey-text text-darken-4">{{event.name}}<i class="material-icons right">more_vert</i>
-                              </span>
-                              <p>
-                                  <a ng-href="{{event.website}}">Website</a>
-                              </p>
-                          </div>
-                          <div class="card-reveal">
-                              <span class="card-title grey-text text-darken-4">{{event.name}}<i class="material-icons right">close</i>
-                              </span>
-                              <p>{{event.text}}</p>
-                          </div>
-                      </div>
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" ng-src="{{event.image}}">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">{{event.name}}
+                                    <i class="material-icons right">more_vert</i>
+                                </span>
+                                <p>
+                                    <a ng-href="{{event.website}}">Website</a>
+                                </p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">{{event.name}}
+                                    <i class="material-icons right">close</i>
+                                </span>
+                                <p>{{event.text}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -368,6 +379,8 @@
     </li>
 
 </ul>
+
+
 
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>

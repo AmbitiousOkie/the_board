@@ -4,27 +4,27 @@ var state = 'Resume';
 
 var currentTab = 'About';
 
-var navTabs = [
-  {
-    name: 'Home'
-  },
-  {
-    name: 'About'
-  },
-  {
-    name: 'Teams'
-  },
-  {
-    name: 'Projects'
-  },
-  {
-    name: 'Events'
-  },
+var navTabs = [{
+    name: 'Home',
+    showTop: false
+  },{
+    name: 'About',
+    showTop: false
+  },{
+    name: 'Teams',
+    showTop: true
+  },{
+    name: 'Projects',
+    showTop: true
+  },{
+    name: 'Events',
+    showTop: true
+  }
 ];
 
 
 var personTabs = [{
-    name: 'Resume'
+    name: 'Resume',
 }, {
     name: 'Bio'
 }, {
@@ -66,7 +66,7 @@ function setState(newState) {
 // Factory returns -----------------------
 return {
     currentTab: currentTab,
-    navTabs: navTabs,
+    getNavTabs: getNavTabs,
     currentTab: currentTab,
     getState: getState,
     getPersonTabs: getPersonTabs,
@@ -85,10 +85,13 @@ personApp.controller('navController', function navController($scope, personServi
     });
 
     $scope.setState = navService.setState;
-    $scope.getPersonTabs = navService.getPersonTabs;
-    $scope.personTabs = $scope.getPersonTabs();
+    // $scope.getPersonTabs = navService.getPersonTabs;
+    $scope.personTabs = navService.getPersonTabs();
 
     $scope.person = personService.getPerson();
+
+    $scope.navTabs = navService.getNavTabs();
+
 
 
 });
