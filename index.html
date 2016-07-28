@@ -139,8 +139,14 @@
             </div>
 
             <div ng-controller="dataViewController">
-                <h3 class="hide-on-large-only">{{person.firstName + ' ' + person.lastName}}</h3>
-                <div class="" ng-hide="state != 'Resume'">
+              <div class="top-pad30 right-pad40 left-pad40 hide-on-large-only">
+                  <img class="responsive-img center-image circle" ng-src="{{person.image}}" alt="{{person.firstName}}" />
+                  <h4 class="hide-on-large-only center">{{person.firstName + ' ' + person.lastName}}</h4>
+
+              </div>
+
+
+                <div ng-hide="state != 'Resume'">
                     <!-- <h5 class="center hide-on-large-only">{{state}}</h5> -->
                     <h4>Current employment</h4>
                     <div class="row right-pad20 left-pad20">
@@ -233,7 +239,7 @@
                     </div>
                 </div>
 
-                <div class="" ng-hide="state != 'Bio'">
+                <div ng-hide="state != 'Bio'">
                     <!-- <h5 class="center hide-on-large-only">{{state}}</h5> -->
                     <h4>About me</h4>
                     <div class="row">
@@ -254,7 +260,7 @@
                     </div>
                 </div>
             </div>
-            <div class="" ng-hide="state != 'Projects'">
+            <div ng-hide="state != 'Projects'">
                 <h5 class="center hide-on-large-only">{{state}}</h5>
                 <div class="row">
                     <div class="col s12 m4" ng-repeat="project in person.projects">
@@ -281,7 +287,7 @@
                 </div>
 
             </div>
-            <div class="" ng-hide="state != 'Teams'">
+            <div ng-hide="state != 'Teams'">
                 <h5 class="center hide-on-large-only">{{state}}</h5>
                 <div class="row">
                     <div class="col s12 m4" ng-repeat="team in person.teams">
@@ -307,7 +313,7 @@
                     </div>
                 </div>
             </div>
-            <div class="" ng-hide="state != 'Events'">
+            <div ng-hide="state != 'Events'">
                 <h5 class="center hide-on-large-only">{{state}}</h5>
 
                 <div class="row">
