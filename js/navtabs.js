@@ -24,21 +24,15 @@ var navTabs = [
 
 
 var personTabs = [{
-    name: 'Resume',
-    text: 'This is the resume',
-    imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/idiot/73.jpg'
+    name: 'Resume'
 }, {
-    name: 'Bio',
-    text: 'This is the bio'
+    name: 'Bio'
 }, {
-    name: 'Projects',
-    text: 'This is the projects'
+    name: 'Projects'
 }, {
-    name: 'Teams',
-    text: 'This is the teams'
+    name: 'Teams'
 }, {
-    name: 'Events',
-    text: 'This is the events'
+    name: 'Events'
 }];
 
 
@@ -92,23 +86,9 @@ personApp.controller('navController', function navController($scope, personServi
 
     $scope.setState = navService.setState;
     $scope.getPersonTabs = navService.getPersonTabs;
-    $scope.tabs = $scope.getPersonTabs();
+    $scope.personTabs = $scope.getPersonTabs();
 
     $scope.person = personService.getPerson();
 
 
 });
-
-// personApp.controller('navController', function navController($scope, personService, navService) {
-//     $scope.$watch(function() {
-//         return navService.getState();
-//     }, function(value) {
-//         $scope.state = value;
-//
-//     });
-//
-//     $scope.setState = navService.setState;
-//     $scope.getPersonTabs = navService.getPersonTabs;
-//     $scope.tabs = $scope.getPersonTabs();
-//
-// });

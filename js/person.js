@@ -26,7 +26,7 @@ personApp.factory('personService', function() {
                     'Web design',
                     'Graphic design',
                     'Photography',
-                    'Oh god, it is so long, please stop typing. youalsdif asdfj dsfjasf kjaf kjdafkj dafk jafkja sdjsl fkasdas j;fjas dfk jasdfjlka'
+                    'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
                 ],
                 website: 'http://stellarwinds.io'
             }],
@@ -52,7 +52,7 @@ personApp.factory('personService', function() {
                     'Web design',
                     'Graphic design',
                     'Photography',
-                    'Oh god, it is so long, please stop typing. youalsdif asdfj dsfjasf kjaf kjdafkj dafk jafkja sdjsl fkasdas j;fjas dfk jasdfjlka'
+                    'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
                 ],
                 website: 'http://stellarwinds.io'
             }, {
@@ -62,7 +62,7 @@ personApp.factory('personService', function() {
                 startYear: '2008',
                 resps: [
                     'Fix stuff',
-                    'Consult on stuff'
+                    'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
                 ],
                 website: 'http://gehric.com'
             }],
@@ -75,7 +75,7 @@ personApp.factory('personService', function() {
                     'Web design',
                     'Graphic design',
                     'Photography',
-                    'Oh god, it is so long, please stop typing. youalsdif asdfj dsfjasf kjaf kjdafkj dafk jafkja sdjsl fkasdas j;fjas dfk jasdfjlka'
+                    'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
                 ],
                 website: 'https://www.meetup.com/TheIrregulars405/'
             }, {
@@ -84,7 +84,7 @@ personApp.factory('personService', function() {
                 startYear: '2016',
                 endYear: 'Current',
                 resps: [
-                    'Talk about stuff',
+                    '',
                     'Consult on stuff'
                 ],
                 website: 'https://www.meetup.com/Oklahoma-City-Digital-Creators/'
@@ -101,7 +101,7 @@ personApp.factory('personService', function() {
             website: 'http://stellarwinds.io/the_board/'
         }, {
             name: 'The Board',
-            text: 'Building a bulletin board',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             image: 'http://stellarwinds.io/images/logo-example-full.png',
             website: 'http://stellarwinds.io/the_board/'
         }, {
@@ -122,13 +122,13 @@ personApp.factory('personService', function() {
             website: 'http://stellarwinds.io/'
         }, {
             name: 'Stellarwinds Studios',
-            text: 'Beautify everything',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             image: 'http://stellarwinds.io/images/photos/photo3.jpg',
             website: 'http://stellarwinds.io/'
         }],
         events: [{
             name: 'Event 1',
-            text: 'Building a bulletin board',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             image: 'http://stellarwinds.io/images/photos/photo15.jpg',
             website: 'http://stellarwinds.io/the_board/'
         }, {
