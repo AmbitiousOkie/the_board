@@ -21,7 +21,8 @@
     <body>
 
         <header>
-            <nav class="teal darken-3">
+            <!-- ID:Navbar -->
+            <nav class="teal darken-3" ng-controller="smallNavController">
                 <div class="nav-wrapper flow-text">
                     <div class="container">
                         <a href="#" class="brand-logo white-text">Logo</a>
@@ -30,16 +31,28 @@
                     <a href="#" data-activates="nav-mobile" class="button-collapse left-pad20">
                         <i class="material-icons">menu</i>
                     </a>
-                    <ul class="right">
-                        <li class="right-pad30">
+                    <ul class="right hide-on-med-and-down right-pad30">
+
+                        <!-- Dropdown Trigger -->
+                        <li>
+                            <a class="dropdown-button" href="#!" data-activates="aboutMeDropDown">
+                                <strong>
+                                    {{'About ' + person.firstName}}
+                                    <i class="material-icons right">arrow_drop_down</i>
+                                </strong>
+                            </a>
+                        </li>
+                        <li>
                             <a href="#">
-                                <h5>Account</h5>
+                                <strong>Account</strong>
                             </a>
                         </li>
                     </ul>
+
                 </div>
             </nav>
 
+            <!-- ID:mobileNavBar -->
             <ul id="nav-mobile" class="side-nav fixed" ng-controller="smallNavController">
                 <div class="container center top-pad20">
                     <img class="circle responsive-img" ng-src="{{person.image}}">
@@ -58,7 +71,9 @@
                     <li class="no-padding hide-on-large-only">
                         <ul class="collapsible collapsible-accordion">
                             <li class="bold">
-                                <a class="collapsible-header  waves-effect waves-teal">About</a>
+                                <a class="waves-effect waves-teal">Home</a>
+                                <a class="collapsible-header  waves-effect waves-teal">About
+                                    {{person.firstName}}</a>
                                 <div class="collapsible-body">
                                     <ul>
                                         <li ng-repeat="info in tabs">
@@ -320,11 +335,25 @@
     </div> -->
     <div class="footer-copyright">
         <div class="container">
-            <strong>© 2016 Copyright Text </strong>
-            <a class="grey-text text-lighten-4 right" href="#"><strong>More Links</strong></a>
+            <strong>© 2016 Copyright Text
+            </strong>
+            <a class="grey-text text-lighten-4 right" href="#">
+                <strong>More Links</strong>
+            </a>
         </div>
     </div>
 </footer>
+
+<!-- Dropdown Structure -->
+<ul id="aboutMeDropDown" class="dropdown-content" ng-controller="largeNavController">
+    <li ng-repeat="info in tabs">
+        <a href="#" ng-click="setState(info.name)">
+            <strong>{{info.name}}</strong>
+        </a>
+    </li>
+
+</ul>
+
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
@@ -333,6 +362,7 @@
     $(".button-collapse").sideNav();
     // Show sideNav $('.button-collapse').sideNav('show'); // Hide sideNav $('.button-collapse').sideNav('hide');
     $('ul.tabs').tabs();
+    $(".dropdown-button").dropdown();
 </script>
 </body>
 

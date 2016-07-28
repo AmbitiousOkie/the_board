@@ -94,66 +94,54 @@ personApp.factory('personService', function() {
             text: 'This is my life story.  Stay awhile and listen.  Snakes on a plane, muthafooka. Yeah, that is right.  I said it.  Whaddya gonna do? Go again? Sure, that sounds like a great idea.  You should have said that before. Uhuh.. You first.',
             website: 'http://google.com'
         },
-        projects: [
-          {
+        projects: [{
             name: 'The Board',
             text: 'Building a bulletin board',
             image: 'http://stellarwinds.io/images/promo.png',
             website: 'http://stellarwinds.io/the_board/'
-          },
-          {
+        }, {
             name: 'The Board',
             text: 'Building a bulletin board',
             image: 'http://stellarwinds.io/images/logo-example-full.png',
             website: 'http://stellarwinds.io/the_board/'
-          },
-          {
+        }, {
             name: 'The Board',
             text: 'Building a bulletin board',
             image: 'http://stellarwinds.io/images/patent.png',
             website: 'http://stellarwinds.io/the_board/'
-          }
-        ],
-        teams: [
-          {
+        }],
+        teams: [{
             name: 'Stellarwinds Studios',
             text: 'Beautify everything',
             image: 'http://stellarwinds.io/images/photos/photo1.jpg',
             website: 'http://stellarwinds.io/'
-          },
-          {
+        }, {
             name: 'Stellarwinds Studios',
             text: 'Beautify everything',
             image: 'http://stellarwinds.io/images/photos/photo12.jpg',
             website: 'http://stellarwinds.io/'
-          },
-          {
+        }, {
             name: 'Stellarwinds Studios',
             text: 'Beautify everything',
             image: 'http://stellarwinds.io/images/photos/photo3.jpg',
             website: 'http://stellarwinds.io/'
-          }
-        ],
-        events: [
-          {
+        }],
+        events: [{
             name: 'Event 1',
             text: 'Building a bulletin board',
             image: 'http://stellarwinds.io/images/photos/photo15.jpg',
             website: 'http://stellarwinds.io/the_board/'
-          },
-          {
+        }, {
             name: 'Event 2',
             text: 'Building a bulletin board',
             image: 'http://stellarwinds.io/images/photos/photo14.jpg',
             website: 'http://stellarwinds.io/the_board/'
-          },
-          {
+        }, {
             name: 'Event 3',
             text: 'Building a bulletin board',
             image: 'http://stellarwinds.io/images/photos/photo1.jpg',
             website: 'http://stellarwinds.io/the_board/'
-          }
-        ]
+        }]
     };
 
     var tabs = [{
@@ -206,8 +194,6 @@ personApp.factory('personService', function() {
         getTabs: getTabs
     }
 });
-
-
 
 
 
