@@ -91,7 +91,7 @@ personApp.factory('personService', function() {
             }]
         },
         bio: {
-            text: 'This is my life story.  Stay awhile and listen.  Snakes on a plane, muthafooka. Yeah, that is right.  I said it.  Whaddya gonna do? Go again? Sure, that sounds like a great idea.  You should have said that before. Uhuh.. You first.',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             website: 'http://google.com'
         },
         projects: [{
@@ -145,30 +145,6 @@ personApp.factory('personService', function() {
     };
 
 
-
-    var tabs = [{
-        name: 'Resume',
-        text: 'This is the resume',
-        imageUrl: 'https://s3.amazonaws.com/uifaces/faces/twitter/idiot/73.jpg'
-    }, {
-        name: 'Bio',
-        text: 'This is the bio'
-    }, {
-        name: 'Projects',
-        text: 'This is the projects'
-    }, {
-        name: 'Teams',
-        text: 'This is the teams'
-    }, {
-        name: 'Events',
-        text: 'This is the events'
-    }];
-
-    var groups = [{
-        name: 'OKC Digital Creators'
-    }, {
-        name: 'The Irregulars'
-    }];
 
     //  ---- Getters--------------------
 

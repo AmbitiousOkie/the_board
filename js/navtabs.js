@@ -83,7 +83,7 @@ return {
 
 
 // Define the `PersonController` controller on the `person` module
-personApp.controller('smallNavController', function smallNavController($scope, personService, navService) {
+personApp.controller('navController', function navController($scope, personService, navService) {
     $scope.$watch(function() {
         return navService.getState();
     }, function(value) {
@@ -99,16 +99,16 @@ personApp.controller('smallNavController', function smallNavController($scope, p
 
 });
 
-personApp.controller('largeNavController', function largeNavController($scope, personService, navService) {
-    $scope.$watch(function() {
-        return navService.getState();
-    }, function(value) {
-        $scope.state = value;
-
-    });
-
-    $scope.setState = navService.setState;
-    $scope.getPersonTabs = navService.getPersonTabs;
-    $scope.tabs = $scope.getPersonTabs();
-
-});
+// personApp.controller('navController', function navController($scope, personService, navService) {
+//     $scope.$watch(function() {
+//         return navService.getState();
+//     }, function(value) {
+//         $scope.state = value;
+//
+//     });
+//
+//     $scope.setState = navService.setState;
+//     $scope.getPersonTabs = navService.getPersonTabs;
+//     $scope.tabs = $scope.getPersonTabs();
+//
+// });
