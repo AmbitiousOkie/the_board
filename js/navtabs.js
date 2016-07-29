@@ -1,6 +1,6 @@
 boardApp.factory('navService', function() {
 
-    var state = 'Resume';
+
 
     var currentTab = 'About';
 
@@ -59,9 +59,7 @@ boardApp.factory('navService', function() {
         return navTabs;
     }
 
-    function getState() {
-        return state;
-    }
+
 
     function getPersonTabs() {
         return personTabs;
@@ -76,31 +74,27 @@ boardApp.factory('navService', function() {
     }
 
     // Setters ---------------------------
-    function setState(newState) {
-        state = newState;
-    }
+
 
     // Factory returns -----------------------
     return {
         getNavTabs: getNavTabs,
-        getState: getState,
         getPersonTabs: getPersonTabs,
         getTeamTabs: getTeamTabs,
-        setState: setState,
         getAccountTabs: getAccountTabs
     }
 });
 
 
 
-boardApp.controller('navController', function navController($scope, navService) {
+boardApp.controller('navController', function navController($scope, stateService, navService) {
     $scope.$watch(function() {
-        return navService.getState();
+        return stateService.getState();
     }, function(value) {
         $scope.state = value;
     });
 
-    $scope.setState = navService.setState;
+    $scope.setState = stateService.setState;
     $scope.navTabs = navService.getNavTabs();
     $scope.personTabs = navService.getPersonTabs();
     $scope.teamTabs = navService.getTeamTabs();

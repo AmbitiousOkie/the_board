@@ -29,17 +29,17 @@ boardApp.factory('teamService', function() {
 });
 
 
-// boardApp.controller('teamController', function teamController($scope, teamService, navService) {
-//     $scope.$watch(function() {
-//         return navService.getState();
-//     }, function(value) {
-//         $scope.state = value;
-//
-//     });
-//
-//     $scope.getTeamTabs = navService.getTeamTabs;
-//     $scope.tabs = $scope.getTeamTabs();
-//     $scope.team = teamService.getTeam();
-//
-//
-// });
+boardApp.controller('teamController', function teamController($scope, teamService, navService) {
+    $scope.$watch(function() {
+        return navService.getState();
+    }, function(value) {
+        $scope.state = value;
+
+    });
+
+    $scope.getTeamTabs = navService.getTeamTabs;
+    $scope.tabs = $scope.getTeamTabs();
+    $scope.team = teamService.getTeam();
+
+
+});

@@ -162,9 +162,9 @@ boardApp.factory('personService', function() {
 });
 
 
-boardApp.controller('personController', function personController($scope, personService, navService) {
+boardApp.controller('personController', function personController($scope, stateService, personService, navService) {
     $scope.$watch(function() {
-        return navService.getState();
+        return stateService.getState();
     }, function(value) {
         $scope.state = value;
 

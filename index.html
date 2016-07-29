@@ -130,8 +130,8 @@
                     <div class="col s12">
                         <ul class="tabs blue-grey lighten-5">
                             <!-- BUG - Active Tab doesn't follow between mobile to desktop -->
-                            <li class="tab col s3" ng-repeat="info in personTabs" ng-class="{'active': info.state == state}">
-                                <a href="#" ng-click="setState(info.name)">{{info.name}}</a>
+                            <li class="tab col s3" ng-repeat="tab in teamTabs">
+                                <a href="#" ng-click="setState(tab.name)">{{info.name}}</a>
                             </li>
                         </ul>
                     </div>
@@ -139,9 +139,12 @@
             </div>
 
             <div ng-controller="personController">
-                <div class="width-60percent">
-                    <div class="center"></div>
-
+                <div class="top-pad30 right-pad40 left-pad40 hide-on-large-only">
+                    -
+                    <div class="" ng-hide="state != 'Resume'">
+                        <img class="responsive-img center-image circle" ng-src="{{person.image}}" alt="{{person.firstName}}"/>
+                        <h4 class="hide-on-large-only center">{{person.firstName + ' ' + person.lastName}}</h4>
+                    </div>
                 </div>
 
                 <div ng-hide="state != 'Resume'">
