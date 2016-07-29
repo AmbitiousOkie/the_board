@@ -1,6 +1,6 @@
 boardApp.factory('navService', function() {
 
-
+    var home = 'index.html';
 
     var currentTab = 'About';
 
@@ -14,19 +14,24 @@ boardApp.factory('navService', function() {
 
     var navTabs = [{
         name: 'Home',
-        showTop: false
+        showTop: false,
+        url: 'index.html'
     }, {
         name: 'About',
-        showTop: false
+        showTop: false,
+        url: '#'
     }, {
         name: 'Teams',
-        showTop: true
+        showTop: true,
+        url: 'team'
     }, {
         name: 'Projects',
-        showTop: true
+        showTop: true,
+        url: '#'
     }, {
         name: 'Events',
-        showTop: true
+        showTop: true,
+        url: '#'
     }];
 
 
@@ -43,23 +48,21 @@ boardApp.factory('navService', function() {
     }];
 
     var teamTabs = [{
-        name: 'Team 1',
+        name: 'About',
     }, {
-        name: 'Team 12'
+        name: 'Members'
     }, {
-        name: 'Team 13'
+        name: 'Projects'
     }, {
-        name: 'Team 14'
+        name: 'Tab4'
     }, {
-        name: 'Team 15'
+        name: 'Tab5'
     }];
 
     //  ---- Getters--------------------
     function getNavTabs() {
         return navTabs;
     }
-
-
 
     function getPersonTabs() {
         return personTabs;
@@ -70,7 +73,11 @@ boardApp.factory('navService', function() {
     }
 
     function getAccountTabs() {
-      return accountTabs;
+        return accountTabs;
+    }
+
+    function getHome() {
+        return home;
     }
 
     // Setters ---------------------------
@@ -81,7 +88,8 @@ boardApp.factory('navService', function() {
         getNavTabs: getNavTabs,
         getPersonTabs: getPersonTabs,
         getTeamTabs: getTeamTabs,
-        getAccountTabs: getAccountTabs
+        getAccountTabs: getAccountTabs,
+        getHome: getHome
     }
 });
 
@@ -99,7 +107,8 @@ boardApp.controller('navController', function navController($scope, stateService
     $scope.personTabs = navService.getPersonTabs();
     $scope.teamTabs = navService.getTeamTabs();
     $scope.accountTabs = navService.getAccountTabs();
-    // console.log($scope.setState);
+    $scope.home = navService.getHome();
+    // console.log($scope.home);
 
 
 

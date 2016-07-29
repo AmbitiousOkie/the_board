@@ -3,7 +3,7 @@ boardApp.factory('teamService', function() {
 
     var team = {
         name: 'Stellarwinds',
-        image: 'https://pbs.twimg.com/profile_images/713461396835414016/Jxjm2uQ5_400x400.jpg',
+        image: 'http://stellarwinds.io/images/seo.png',
         city: 'Oklahoma City',
         tagLine: 'At the space bar...',
         github: 'https://github.com/AmbitiousOkie',
@@ -30,6 +30,8 @@ boardApp.factory('teamService', function() {
 
 
 boardApp.controller('teamController', function teamController($scope, teamService, navService, stateService) {
+    stateService.setState('Main');
+
     $scope.$watch(function() {
         return stateService.getState();
     }, function(value) {

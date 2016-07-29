@@ -3,7 +3,7 @@ var boardApp = angular.module('boardApp', []);
 boardApp.factory('stateService', function() {
 
 
-    var state = 'Resume';
+    var state = '';
 
 
 
