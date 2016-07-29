@@ -99,6 +99,7 @@ boardApp.controller('navController', function navController($scope, stateService
     $scope.personTabs = navService.getPersonTabs();
     $scope.teamTabs = navService.getTeamTabs();
     $scope.accountTabs = navService.getAccountTabs();
+    // console.log($scope.setState);
 
 
 

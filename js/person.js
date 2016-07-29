@@ -174,5 +174,4 @@ boardApp.controller('personController', function personController($scope, stateS
     $scope.tabs = navService.getPersonTabs();
     $scope.person = personService.getPerson();
 
-
 });

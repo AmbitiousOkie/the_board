@@ -15,10 +15,12 @@ boardApp.factory('stateService', function() {
     // Setters ---------------------------
     function setState(newState) {
         state = newState;
+        console.log(state);
     }
 
     // Factory returns -----------------------
     return {
-        getState: getState
+        getState: getState,
+        setState: setState
     }
 });

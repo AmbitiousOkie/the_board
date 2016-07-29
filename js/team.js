@@ -29,9 +29,9 @@ boardApp.factory('teamService', function() {
 });
 
 
-boardApp.controller('teamController', function teamController($scope, teamService, navService) {
+boardApp.controller('teamController', function teamController($scope, teamService, navService, stateService) {
     $scope.$watch(function() {
-        return navService.getState();
+        return stateService.getState();
     }, function(value) {
         $scope.state = value;
 
