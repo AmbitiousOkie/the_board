@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="personApp">
+<html ng-app="boardApp">
 
     <head>
         <!--Import Google Icon Font-->
@@ -12,9 +12,12 @@
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <script src="js/angular.js"></script>
 
+        <script src="js/angular.js"></script>
+        <script src="js/app.js"></script>
         <script src="js/person.js"></script>
+        <script src="js/team.js"></script>
+
         <script src="js/navtabs.js"></script>
         <!-- <script src="js/data-view.component.js"></script> -->
     </head>
@@ -41,25 +44,22 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-button" href="#!" data-activates="aboutMeDropDown">
-                                <strong>
-                                    {{'About ' + person.firstName}}
-                                    <i class="material-icons right">arrow_drop_down</i>
-                                </strong>
-                            </a>
+                            <div ng-controller="personController">
+                                <a class="dropdown-button" href="#!" data-activates="aboutMeDropDown">
+                                    <strong>
+                                        Account
+                                        <i class="material-icons right">arrow_drop_down</i>
+                                    </strong>
+                                </a>
+                            </div>
                         </li>
-                        <li>
-                            <a href="#">
-                                <strong>Account</strong>
-                            </a>
-                        </li>
-                    </ul>
 
+                    </ul>
                 </div>
             </nav>
 
             <!-- ID:mobileNavBar -->
-            <ul id="nav-mobile" class="side-nav fixed" ng-controller="navController">
+            <ul id="nav-mobile" class="side-nav fixed" ng-controller="personController">
                 <div class="container center top-pad20">
                     <img class="circle responsive-img" ng-src="{{person.image}}">
                 </div>
@@ -80,7 +80,7 @@
                                 <a class="waves-effect waves-teal">Home</a>
                                 <a class="collapsible-header  waves-effect waves-teal">About
                                     {{person.firstName}}</a>
-                                <div class="collapsible-body">
+                                <div class="collapsible-body" ng-controller="navController">
                                     <ul>
                                         <li ng-repeat="info in personTabs">
                                             <a href="#" ng-click="setState(info.name)">{{info.name}}</a>
@@ -138,13 +138,11 @@
                 </div>
             </div>
 
-            <div ng-controller="dataViewController">
-              <div class="top-pad30 right-pad40 left-pad40 hide-on-large-only">
-                  <img class="responsive-img center-image circle" ng-src="{{person.image}}" alt="{{person.firstName}}" />
-                  <h4 class="hide-on-large-only center">{{person.firstName + ' ' + person.lastName}}</h4>
+            <div ng-controller="personController">
+                <div class="width-60percent">
+                    <div class="center"></div>
 
-              </div>
-
+                </div>
 
                 <div ng-hide="state != 'Resume'">
                     <!-- <h5 class="center hide-on-large-only">{{state}}</h5> -->
@@ -378,15 +376,13 @@
 
 <!-- Dropdown Structure -->
 <ul id="aboutMeDropDown" class="dropdown-content" ng-controller="navController">
-    <li ng-repeat="info in personTabs">
-        <a href="#" ng-click="setState(info.name)">
-            <strong>{{info.name}}</strong>
+    <li ng-repeat="tab in accountTabs">
+        <a href="#" ng-click="setState(tab.name)">
+            <strong>{{tab.name}}</strong>
         </a>
     </li>
 
 </ul>
-
-
 
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>

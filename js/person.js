@@ -1,7 +1,4 @@
-// Define the `person` module
-var personApp = angular.module('personApp', []);
-
-personApp.factory('personService', function() {
+boardApp.factory('personService', function() {
 
 
     var person = {
@@ -165,7 +162,7 @@ personApp.factory('personService', function() {
 });
 
 
-personApp.controller('dataViewController', function dataViewController($scope, personService, navService) {
+boardApp.controller('personController', function personController($scope, personService, navService) {
     $scope.$watch(function() {
         return navService.getState();
     }, function(value) {
@@ -173,8 +170,8 @@ personApp.controller('dataViewController', function dataViewController($scope, p
 
     });
 
-    $scope.getPersonTabs = navService.getPersonTabs;
-    $scope.tabs = $scope.getPersonTabs();
+
+    $scope.tabs = navService.getPersonTabs();
     $scope.person = personService.getPerson();
 
 

@@ -1,83 +1,99 @@
-personApp.factory('navService', function() {
+boardApp.factory('navService', function() {
 
-var state = 'Resume';
+    var state = 'Resume';
 
-var currentTab = 'About';
+    var currentTab = 'About';
 
-var navTabs = [{
-    name: 'Home',
-    showTop: false
-  },{
-    name: 'About',
-    showTop: false
-  },{
-    name: 'Teams',
-    showTop: true
-  },{
-    name: 'Projects',
-    showTop: true
-  },{
-    name: 'Events',
-    showTop: true
-  }
-];
+    var accountTabs = [{
+        name: 'Profile',
+    }, {
+        name: 'Settings'
+    }, {
+        name: 'Sign Out'
+    }];
 
-
-var personTabs = [{
-    name: 'Resume',
-}, {
-    name: 'Bio'
-}, {
-    name: 'Projects'
-}, {
-    name: 'Teams'
-}, {
-    name: 'Events'
-}];
+    var navTabs = [{
+        name: 'Home',
+        showTop: false
+    }, {
+        name: 'About',
+        showTop: false
+    }, {
+        name: 'Teams',
+        showTop: true
+    }, {
+        name: 'Projects',
+        showTop: true
+    }, {
+        name: 'Events',
+        showTop: true
+    }];
 
 
-//  ---- Getters--------------------
-function getCurrentTab() {
-    return currentTab;
-}
+    var personTabs = [{
+        name: 'Resume',
+    }, {
+        name: 'Bio'
+    }, {
+        name: 'Projects'
+    }, {
+        name: 'Teams'
+    }, {
+        name: 'Events'
+    }];
 
-function getNavTabs() {
-    return navTabs;
-}
+    var teamTabs = [{
+        name: 'Team 1',
+    }, {
+        name: 'Team 12'
+    }, {
+        name: 'Team 13'
+    }, {
+        name: 'Team 14'
+    }, {
+        name: 'Team 15'
+    }];
 
-function getState() {
-    return state;
-}
+    //  ---- Getters--------------------
+    function getNavTabs() {
+        return navTabs;
+    }
 
-function getPersonTabs() {
-    return personTabs;
-}
+    function getState() {
+        return state;
+    }
 
+    function getPersonTabs() {
+        return personTabs;
+    }
 
-// Setters ---------------------------
-function setCurrentTab(newTab) {
-    currentTab = newTab;
-}
+    function getTeamTabs() {
+        return teamTabs;
+    }
 
-function setState(newState) {
-    state = newState;
-}
+    function getAccountTabs() {
+      return accountTabs;
+    }
 
-// Factory returns -----------------------
-return {
-    currentTab: currentTab,
-    getNavTabs: getNavTabs,
-    currentTab: currentTab,
-    getState: getState,
-    getPersonTabs: getPersonTabs,
-    setState: setState
-}
+    // Setters ---------------------------
+    function setState(newState) {
+        state = newState;
+    }
 
+    // Factory returns -----------------------
+    return {
+        getNavTabs: getNavTabs,
+        getState: getState,
+        getPersonTabs: getPersonTabs,
+        getTeamTabs: getTeamTabs,
+        setState: setState,
+        getAccountTabs: getAccountTabs
+    }
 });
 
 
-// Define the `PersonController` controller on the `person` module
-personApp.controller('navController', function navController($scope, personService, navService) {
+
+boardApp.controller('navController', function navController($scope, navService) {
     $scope.$watch(function() {
         return navService.getState();
     }, function(value) {
@@ -85,12 +101,11 @@ personApp.controller('navController', function navController($scope, personServi
     });
 
     $scope.setState = navService.setState;
-    // $scope.getPersonTabs = navService.getPersonTabs;
-    $scope.personTabs = navService.getPersonTabs();
-
-    $scope.person = personService.getPerson();
-
     $scope.navTabs = navService.getNavTabs();
+    $scope.personTabs = navService.getPersonTabs();
+    $scope.teamTabs = navService.getTeamTabs();
+    $scope.accountTabs = navService.getAccountTabs();
+
 
 
 
