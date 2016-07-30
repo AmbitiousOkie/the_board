@@ -1,0 +1,60 @@
+<ul id="nav-mobile" class="side-nav fixed">
+    <div class="container center top-pad20" >
+        <img class="circle responsive-img" ng-src="{{person.image}}">
+    </div>
+    <h4 class="center">{{person.firstName + ' ' + person.lastName}}</h4>
+    <h6 class="center">{{person.city}}</h6>
+    <h6 class="center">
+        <em>{{person.tagLine}}</em>
+    </h6>
+    <p>
+        <!-- tabState: {{state}} -->
+    </p>
+    <div class="top-pad20"></div>
+
+    <ul>
+        <li class="no-padding hide-on-large-only">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold">
+                    <a class="waves-effect waves-teal">Home</a>
+                    <a class="collapsible-header  waves-effect waves-teal">About
+                        {{person.firstName}}</a>
+                    <div class="collapsible-body" ng-controller="navController">
+                        <ul>
+                            <li ng-repeat="info in personTabs">
+                                <a href="#" ng-click="setTabState(info.name)">{{info.name}}</a>
+                            </li>
+                        </ul>Teams
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="no-padding hide-on-large-only">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold">
+                    <a class="collapsible-header  waves-effect waves-teal">Contact</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li>
+                                <a ng-show="person.github" ng-href="{{person.github}}">Github</a>
+                            </li>
+                            <li>
+                                <a ng-show="person.facebook" ng-href="{{person.facebook}}">Facebook</a>
+                            </li>
+                            <li>
+                                <a ng-show="person.twitter" ng-href="{{person.twitter}}">Twitter</a>
+                            </li>
+                            <li>
+                                <a ng-show="person.email" ng-href="mailto:{{person.email}}">E-mail</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="no-padding top-pad20">
+            <a class="waves-effect waves-light btn white-text">
+                <i class="material-icons right">cloud</i>follow</a>
+        </li>
+    </ul>
+</ul>

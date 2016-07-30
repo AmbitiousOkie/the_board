@@ -1,0 +1,31 @@
+<nav class="teal darken-3" ng-controller="navController">
+    <div class="nav-wrapper flow-text">
+        <div class="container">
+            <a ng-href="{{home}}" class="brand-logo white-text">Home</a>
+        </div>
+        <a href="#" data-activates="nav-mobile" class="button-collapse left-pad20">
+            <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down right-pad30">
+
+            <li ng-repeat="navTab in navTabs | filter:true">
+                <a href="#" data-activates="{{navTab.name}}DropDown">
+                    <strong>
+                        {{navTab.name}}
+                    </strong>
+                </a>
+            </li>
+            <li>
+                <div>
+                    <a class="dropdown-button" href="#!" data-activates="aboutMeDropDown">
+                        <strong>
+                            Account
+                            <i class="material-icons right">arrow_drop_down</i>
+                        </strong>
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</nav>

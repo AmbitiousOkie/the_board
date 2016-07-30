@@ -163,9 +163,17 @@ boardApp.factory('personService', function() {
 
 
 boardApp.controller('personController', function personController($scope, stateService, personService, navService) {
-    stateService.setState('Resume');
+
+  if (stateService.getTabState() != 'Resume') {
+    stateService.setTabState('Resume');
+  }
+
+  if (stateService.getPageState() != 'Person') {
+    stateService.setPageState('Person');
+  }
+
     $scope.$watch(function() {
-        return stateService.getState();
+        return stateService.getTabState();
     }, function(value) {
         $scope.state = value;
 

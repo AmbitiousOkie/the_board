@@ -30,10 +30,10 @@ boardApp.factory('teamService', function() {
 
 
 boardApp.controller('teamController', function teamController($scope, teamService, navService, stateService) {
-    stateService.setState('Main');
+    stateService.setTabState('Main');
 
     $scope.$watch(function() {
-        return stateService.getState();
+        return stateService.getTabState();
     }, function(value) {
         $scope.state = value;
 

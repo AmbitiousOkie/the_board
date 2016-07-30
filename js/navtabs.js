@@ -20,7 +20,11 @@ boardApp.factory('navService', function() {
         name: 'About',
         showTop: false,
         url: '#'
-    }, {
+    },{
+        name: 'People',
+        showTop: true,
+        url: 'team'
+    },{
         name: 'Teams',
         showTop: true,
         url: 'team'
@@ -97,20 +101,21 @@ boardApp.factory('navService', function() {
 
 boardApp.controller('navController', function navController($scope, stateService, navService) {
     $scope.$watch(function() {
-        return stateService.getState();
+        return stateService.getTabState();
     }, function(value) {
         $scope.state = value;
     });
 
-    $scope.setState = stateService.setState;
+    $scope.setTabState = stateService.setTabState;
     $scope.navTabs = navService.getNavTabs();
     $scope.personTabs = navService.getPersonTabs();
     $scope.teamTabs = navService.getTeamTabs();
     $scope.accountTabs = navService.getAccountTabs();
     $scope.home = navService.getHome();
-    // console.log($scope.home);
 
-
-
+    // Retrieve navTop.html
+    $scope.getNavTop = function(){
+      return "ng-partials/navTop.html";
+  };
 
 });

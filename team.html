@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="boardApp">
+<html ng-app="boardApp" ng-cloak>
 
     <head>
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> -->
+
 
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
@@ -15,7 +15,7 @@
 
         <script src="js/angular.js"></script>
         <script src="js/app.js"></script>
-        <script src="js/person.js"></script>
+        <!-- <script src="js/person.js"></script> -->
         <script src="js/team.js"></script>
 
         <script src="js/navtabs.js"></script>
@@ -44,7 +44,7 @@
                             </a>
                         </li>
                         <li>
-                            <div ng-controller="personController">
+                            <div>
                                 <a class="dropdown-button" href="#!" data-activates="aboutMeDropDown">
                                     <strong>
                                         Account
@@ -80,7 +80,7 @@
                                 <div class="collapsible-body" ng-controller="navController">
                                     <ul>
                                         <li ng-repeat="info in personTabs">
-                                            <a href="#" ng-click="setState(info.name)">{{info.name}}</a>
+                                            <a href="#" ng-click="setTabState(info.name)">{{info.name}}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -128,7 +128,7 @@
                         <ul class="tabs blue-grey lighten-5">
                             <!-- BUG - Active Tab doesn't follow between mobile to desktop -->
                             <li class="tab col s3" ng-repeat="tab in teamTabs">
-                                <a href="#" ng-click="setState(tab.name)">{{tab.name}}</a>
+                                <a href="#" ng-click="setTabState(tab.name)">{{tab.name}}</a>
                             </li>
                         </ul>
                     </div>
@@ -313,7 +313,7 @@
         <!-- Dropdown Structure -->
         <ul id="aboutMeDropDown" class="dropdown-content" ng-controller="navController">
             <li ng-repeat="tab in accountTabs">
-                <a href="#" ng-click="setState(tab.name)">
+                <a href="#" ng-click="setTabState(tab.name)">
                     <strong>{{tab.name}}</strong>
                 </a>
             </li>
