@@ -33,6 +33,17 @@
     </div>
 </nav>
 
+
+<!-- Dropdown Structure -->
+<ul id="aboutDropDown" class="dropdown-content" ng-controller="navController">
+    <li ng-repeat="tab in accountTabs">
+        <a href="#" ng-click="setTabState(tab.name)">
+            <strong>{{tab.name}}</strong>
+        </a>
+    </li>
+
+</ul>
+
 <script type="text/javascript-lazy">
   $(".button-collapse").sideNav();
 </script>

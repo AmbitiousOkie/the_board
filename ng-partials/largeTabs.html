@@ -1,0 +1,13 @@
+<div class="top-pad20 hide-on-med-and-down">
+
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs blue-grey lighten-5">
+                <!-- BUG - Active Tab doesn't follow between mobile to desktop -->
+                <li class="tab col s3" ng-repeat="tab in personTabs">
+                    <a href="#" ng-click="setTabState(tab.name)">{{tab.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -20,11 +20,11 @@ boardApp.factory('navService', function() {
         name: 'About',
         showTop: false,
         url: '#'
-    },{
+    }, {
         name: 'People',
         showTop: true,
         url: 'team'
-    },{
+    }, {
         name: 'Teams',
         showTop: true,
         url: 'team'
@@ -114,8 +114,16 @@ boardApp.controller('navController', function navController($scope, stateService
     $scope.home = navService.getHome();
 
     // Retrieve navTop.html
-    $scope.getNavTop = function(){
-      return "ng-partials/navTop.html";
-  };
+    $scope.getNavTop = function() {
+        return "ng-partials/navTop.html";
+    };
+
+    $scope.getFooter = function() {
+        return "ng-partials/footer.html";
+    };
+    $scope.getLargeTabs = function() {
+        return "ng-partials/largeTabs.html";
+    };
+
 
 });

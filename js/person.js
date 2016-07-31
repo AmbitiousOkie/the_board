@@ -1,9 +1,11 @@
 boardApp.factory('personService', function() {
 
+    var currentPerson = '';
 
     var person = {
         firstName: "Kris",
         lastName: "Wall",
+        ID: 0001,
         image: 'https://pbs.twimg.com/profile_images/713461396835414016/Jxjm2uQ5_400x400.jpg',
         city: 'Oklahoma City',
         tagLine: 'At the space bar...',
@@ -150,27 +152,40 @@ boardApp.factory('personService', function() {
         return person;
     }
 
+    function getCurrentPerson() {
+        return currentPerson;
+    }
+
 
 
     // Setters ---------------------------
-
+    function setCurrentPerson(newPerson) {
+        currentPerson = newPerson;
+    }
 
     // Factory returns -----------------------
     return {
-        getPerson: getPerson
+        getPerson: getPerson,
+        getCurrentPerson: getCurrentPerson,
+        setCurrentPerson: setCurrentPerson
     }
 });
 
 
 boardApp.controller('personController', function personController($scope, stateService, personService, navService) {
 
-  if (stateService.getTabState() != 'Resume') {
-    stateService.setTabState('Resume');
-  }
+    if (stateService.getTabState() != 'Resume') {
+        stateService.setTabState('Resume');
+    }
 
-  if (stateService.getPageState() != 'Person') {
-    stateService.setPageState('Person');
-  }
+    if (stateService.getPageState() != 'Person') {
+        stateService.setPageState('Person');
+    }
+
+    if (personService.getCurrentPerson() != personService.getPerson().ID){
+      personService.setCurrentPerson(personService.getPerson().ID);
+      console.log('Current Person: ' + personService.getCurrentPerson());
+    }
 
     $scope.$watch(function() {
         return stateService.getTabState();
@@ -184,8 +199,11 @@ boardApp.controller('personController', function personController($scope, stateS
     $scope.person = personService.getPerson();
 
     // Retrieve navTop.html
-    $scope.getNavSide = function(){
-      return "ng-partials/navSide.html";
-  };
+    $scope.getNavSide = function() {
+        return "ng-partials/navSide.html";
+    };
+    $scope.getPersonView = function() {
+        return "ng-partials/personView.html";
+    };
 
 });
