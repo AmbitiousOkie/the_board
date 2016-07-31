@@ -183,4 +183,9 @@ boardApp.controller('personController', function personController($scope, stateS
     $scope.tabs = navService.getPersonTabs();
     $scope.person = personService.getPerson();
 
+    // Retrieve navTop.html
+    $scope.getNavSide = function(){
+      return "ng-partials/navSide.html";
+  };
+
 });

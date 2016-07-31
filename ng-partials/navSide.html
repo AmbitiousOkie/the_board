@@ -1,15 +1,12 @@
-<ul id="nav-mobile" class="side-nav fixed">
-    <div class="container center top-pad20" >
-        <img class="circle responsive-img" ng-src="{{person.image}}">
+<ul id="nav-mobile" class="side-nav fixed" ng-controller="personController">
+    <div class="con`tainer center top-pad20">
+        <img class="circle responsive-img top-pad10 left-pad20 right-pad20" ng-src="{{person.image}}">
     </div>
     <h4 class="center">{{person.firstName + ' ' + person.lastName}}</h4>
     <h6 class="center">{{person.city}}</h6>
     <h6 class="center">
         <em>{{person.tagLine}}</em>
     </h6>
-    <p>
-        <!-- tabState: {{state}} -->
-    </p>
     <div class="top-pad20"></div>
 
     <ul>
@@ -24,7 +21,7 @@
                             <li ng-repeat="info in personTabs">
                                 <a href="#" ng-click="setTabState(info.name)">{{info.name}}</a>
                             </li>
-                        </ul>Teams
+                        </ul>
                     </div>
                 </li>
             </ul>
@@ -58,3 +55,7 @@
         </li>
     </ul>
 </ul>
+
+<script type="text/javascript-lazy">
+  $(".button-collapse").sideNav();
+</script>

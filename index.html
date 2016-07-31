@@ -13,258 +13,288 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
         <script src="js/angular.js"></script>
+        <script src="js/javascript-lazy.js"></script>
         <script src="js/app.js"></script>
         <script src="js/person.js"></script>
-        <!-- <script src="js/team.js"></script> -->
-
         <script src="js/navtabs.js"></script>
-        <!-- <script src="js/data-view.component.js"></script> -->
     </head>
 
     <body>
 
         <header>
 
-            <!-- Get navTop.html -->
-            <div ng-controller="navController">
-                <ng-include src="getNavTop()"></ng-include>
+            <!-- <nav class="teal darken-3">
+                <div class="nav-wrapper flow-text">
+                    <div class="container">
+                        <a ng-href="{{home}}" class="brand-logo white-text">Home</a>
+                    </div>
+                    <a data-activates="nav-mobile" class="button-collapse left-pad20">
+                        <i class="material-icons">menu</i>
+                    </a>
+                    <ul class="right hide-on-med-and-down right-pad30">
+
+                        <li ng-repeat="navTab in navTabs | filter:true">
+                            <a href="#">
+                                <strong>
+                                    {{navTab.name}}
+                                </strong>
+                            </a>
+                        </li>
+                        <li>
+                            <div>
+                                <a class="dropdown-button" href="#!" data-activates="aboutDropDown">
+                                    <strong>
+                                        Account
+                                        <i class="material-icons right">arrow_drop_down</i>
+                                    </strong>
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav> -->
+
+
+        <!-- Get navTop.html -->
+        <div ng-controller="navController">
+            <ng-include src="getNavTop()"></ng-include>
+        </div>
+
+        <div ng-controller="personController">
+            <ng-include src="getNavSide()"></ng-include>
+        </div>
+
+    </header>
+
+    <main class="main blue-grey lighten-5">
+        <div class="container">
+            <div class="top-pad20 hide-on-med-and-down" ng-controller="navController">
+
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs blue-grey lighten-5">
+                            <!-- BUG - Active Tab doesn't follow between mobile to desktop -->
+                            <li class="tab col s3" ng-repeat="tab in personTabs">
+                                <a href="#" ng-click="setTabState(tab.name)">{{tab.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <!-- <div ng-controller="personController">
-                <ng-include src="getNavSide()"></ng-include>
-            </div> -->
-
-        </header>
-
-        <main class="main blue-grey lighten-5">
-            <div class="container">
-                <div class="top-pad20 hide-on-med-and-down" ng-controller="navController">
-
-                    <div class="row">
-                        <div class="col s12">
-                            <ul class="tabs blue-grey lighten-5">
-                                <!-- BUG - Active Tab doesn't follow between mobile to desktop -->
-                                <li class="tab col s3" ng-repeat="tab in personTabs">
-                                    <a href="#" ng-click="setTabState(tab.name)">{{tab.name}}</a>
-                                </li>
-                            </ul>
-                        </div>
+            <div ng-controller="personController">
+                <div class="top-pad30 right-pad40 left-pad40 hide-on-large-only">
+                    -
+                    <!-- <div class="" ng-hide="state != 'Resume'"> -->
+                    <div>
+                        <img class="responsive-img center-image circle" ng-src="{{person.image}}" alt="{{person.firstName}}"/>
+                        <h4 class="hide-on-large-only center">{{person.firstName + ' ' + person.lastName}}</h4>
                     </div>
                 </div>
 
-                <div ng-controller="personController">
-                    <div class="top-pad30 right-pad40 left-pad40 hide-on-large-only">
-                        -
-                        <!-- <div class="" ng-hide="state != 'Resume'"> -->
-                        <div>
-                            <img class="responsive-img center-image circle" ng-src="{{person.image}}" alt="{{person.firstName}}"/>
-                            <h4 class="hide-on-large-only center">{{person.firstName + ' ' + person.lastName}}</h4>
-                        </div>
-                    </div>
-
-                    <div ng-hide="state != 'Resume'">
-                        <!-- <h5 class="center hide-on-large-only">{{state}}</h5> -->
-                        <h4>Current employment</h4>
-                        <div class="row right-pad20 left-pad20">
-                            <div class="col s12" ng-repeat="current in person.resume.currentEmp">
-                                <div class="card horizontal hoverable ">
-                                    <div class="card-stacked">
-                                        <div class="card-content">
-                                            <h5 class="truncate">{{current.name}}
-                                                <span class="right right-pad10 date-size">
-                                                    <em>{{current.startMonth + ' ' + current.startYear}}</em>
-                                                </span>
-                                            </h5>
-                                            <div class="left-pad20">
-                                                <b>{{current.role}}</b><br>
-                                                <em class="left-pad20" ng-repeat="resp in current.resps">{{resp}}<br></em>
-                                            </div>
-                                        </div>
-                                        <div class="card-action">
-                                            <a ng-href="{{current.website}}">Website</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <h4>Education</h4>
-                        <div class="row right-pad20 left-pad20">
-                            <div class="col s12" ng-repeat="school in person.resume.education">
-                                <div class="card horizontal hoverable">
-                                    <div class="card-stacked">
-                                        <div class="card-content">
-                                            <h5 class="truncate">{{school.name}}
-                                                <span class="right right-pad10 date-size">
-                                                    <em>{{school.completion}}</em>
-                                                </span>
-                                            </h5>
-                                            <div class="left-pad20">
-                                                <b>{{school.degree}}</b><br>
-                                                <em class="truncate">{{school.city + ', ' + school.state}}</em>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <h4>Past Employment</h4>
-                        <div class="row right-pad20 left-pad20">
-                            <div class="col s12" ng-repeat="past in person.resume.pastEmp">
-                                <div class="card horizontal hoverable">
-                                    <div class="card-stacked">
-                                        <div class="card-content">
-                                            <h5 class="truncate">{{past.name}}
-                                                <span class="right right-pad10 date-size">
-                                                    <em>{{past.startMonth + ' ' + past.startYear}}</em>
-                                                </span>
-                                            </h5>
-                                            <div class="left-pad20">
-                                                <b>{{past.role}}</b><br>
-                                                <em class="left-pad20" ng-repeat="resp in past.resps">{{resp}}<br></em>
-                                            </div>
-                                        </div>
-                                        <div class="card-action">
-                                            <a ng-href="{{past.website}}">Website</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <h4>Community Experience</h4>
-                        <div class="row right-pad20 left-pad20">
-                            <div class="col s12" ng-repeat="comm in person.resume.community">
-                                <div class="card horizontal hoverable">
-                                    <div class="card-stacked">
-                                        <div class="card-content">
-                                            <h5 class="truncate">{{comm.name}}
-                                                <span class="right right-pad10 date-size">
-                                                    <em>{{comm.startYear + ' - ' + comm.endYear}}</em>
-                                                </span>
-                                            </h5>
-                                            <div class="left-pad20">
-                                                <b>{{comm.role}}</b><br>
-                                                <em class="left-pad20" ng-repeat="resp in comm.resps">{{resp}}<br></em>
-                                            </div>
-                                        </div>
-                                        <div class="card-action">
-                                            <a ng-href="{{comm.website}}">Website</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div ng-hide="state != 'Bio'">
-                        <!-- <h5 class="center hide-on-large-only">{{state}}</h5> -->
-                        <h4>About me</h4>
-                        <div class="row">
-                            <div class="col s12">
-                                <div class="card horizontal hoverable">
-                                    <div class="card-stacked">
-                                        <div class="card-content">
-                                            <p>
-                                                {{person.bio.text}}
-                                            </p>
+                <div ng-hide="state != 'Resume'">
+                    <!-- <h5 class="center hide-on-large-only">{{state}}</h5> -->
+                    <h4>Current employment</h4>
+                    <div class="row right-pad20 left-pad20">
+                        <div class="col s12" ng-repeat="current in person.resume.currentEmp">
+                            <div class="card horizontal hoverable ">
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <h5 class="truncate">{{current.name}}
+                                            <span class="right right-pad10 date-size">
+                                                <em>{{current.startMonth + ' ' + current.startYear}}</em>
+                                            </span>
                                         </h5>
+                                        <div class="left-pad20">
+                                            <b>{{current.role}}</b><br>
+                                            <em class="left-pad20" ng-repeat="resp in current.resps">{{resp}}<br></em>
+                                        </div>
                                     </div>
                                     <div class="card-action">
-                                        <a ng-href="{{person.bio.website}}">Personal Site</a>
+                                        <a ng-href="{{current.website}}">Website</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4>Education</h4>
+                    <div class="row right-pad20 left-pad20">
+                        <div class="col s12" ng-repeat="school in person.resume.education">
+                            <div class="card horizontal hoverable">
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <h5 class="truncate">{{school.name}}
+                                            <span class="right right-pad10 date-size">
+                                                <em>{{school.completion}}</em>
+                                            </span>
+                                        </h5>
+                                        <div class="left-pad20">
+                                            <b>{{school.degree}}</b><br>
+                                            <em class="truncate">{{school.city + ', ' + school.state}}</em>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4>Past Employment</h4>
+                    <div class="row right-pad20 left-pad20">
+                        <div class="col s12" ng-repeat="past in person.resume.pastEmp">
+                            <div class="card horizontal hoverable">
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <h5 class="truncate">{{past.name}}
+                                            <span class="right right-pad10 date-size">
+                                                <em>{{past.startMonth + ' ' + past.startYear}}</em>
+                                            </span>
+                                        </h5>
+                                        <div class="left-pad20">
+                                            <b>{{past.role}}</b><br>
+                                            <em class="left-pad20" ng-repeat="resp in past.resps">{{resp}}<br></em>
+                                        </div>
+                                    </div>
+                                    <div class="card-action">
+                                        <a ng-href="{{past.website}}">Website</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4>Community Experience</h4>
+                    <div class="row right-pad20 left-pad20">
+                        <div class="col s12" ng-repeat="comm in person.resume.community">
+                            <div class="card horizontal hoverable">
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <h5 class="truncate">{{comm.name}}
+                                            <span class="right right-pad10 date-size">
+                                                <em>{{comm.startYear + ' - ' + comm.endYear}}</em>
+                                            </span>
+                                        </h5>
+                                        <div class="left-pad20">
+                                            <b>{{comm.role}}</b><br>
+                                            <em class="left-pad20" ng-repeat="resp in comm.resps">{{resp}}<br></em>
+                                        </div>
+                                    </div>
+                                    <div class="card-action">
+                                        <a ng-href="{{comm.website}}">Website</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div ng-hide="state != 'Projects'">
-                    <h5 class="center hide-on-large-only">{{state}}</h5>
-                    <div class="row">
-                        <div class="col s12 m4" ng-repeat="project in person.projects">
-                            <div class="card">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="activator" ng-src="{{project.image}}">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title activator grey-text text-darken-4">{{project.name}}
-                                        <i class="material-icons right">more_vert</i>
-                                    </span>
-                                    <p>
-                                        <a ng-href="{{project.website}}">Website</a>
-                                    </p>
-                                </div>
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4">{{project.name}}
-                                        <i class="material-icons right">close</i>
-                                    </span>
-                                    <p>{{project.text}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-                <div ng-hide="state != 'Teams'">
-                    <h5 class="center hide-on-large-only">{{state}}</h5>
+                <div ng-hide="state != 'Bio'">
+                    <h4>About me</h4>
                     <div class="row">
-                        <div class="col s12 m4" ng-repeat="team in person.teams">
-                            <div class="card">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="activator" ng-src="{{team.image}}">
+                        <div class="col s12">
+                            <div class="card horizontal hoverable">
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <p>
+                                            {{person.bio.text}}
+                                        </p>
+                                    </h5>
                                 </div>
-                                <div class="card-content">
-                                    <span class="card-title activator grey-text text-darken-4">{{team.name}}
-                                        <i class="material-icons right">more_vert</i>
-                                    </span>
-                                    <p>
-                                        <a ng-href="{{team.website}}">Website</a>
-                                    </p>
-                                </div>
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4">{{team.name}}
-                                        <i class="material-icons right">close</i>
-                                    </span>
-                                    <p>{{team.text}}</p>
+                                <div class="card-action">
+                                    <a ng-href="{{person.bio.website}}">Personal Site</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div ng-hide="state != 'Events'">
-                    <h5 class="center hide-on-large-only">{{state}}</h5>
-
-                    <div class="row">
-                        <div class="col s12 m4" ng-repeat="event in person.events">
-                            <div class="card">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <img class="activator" ng-src="{{event.image}}">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title activator grey-text text-darken-4">{{event.name}}
-                                        <i class="material-icons right">more_vert</i>
-                                    </span>
-                                    <p>
-                                        <a ng-href="{{event.website}}">Website</a>
-                                    </p>
-                                </div>
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4">{{event.name}}
-                                        <i class="material-icons right">close</i>
-                                    </span>
-                                    <p>{{event.text}}</p>
-                                </div>
+            </div>
+            <div ng-hide="state != 'Projects'">
+                <h5 class="center hide-on-large-only">{{state}}</h5>
+                <div class="row">
+                    <div class="col s12 m4" ng-repeat="project in person.projects">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" ng-src="{{project.image}}">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">{{project.name}}
+                                    <i class="material-icons right">more_vert</i>
+                                </span>
+                                <p>
+                                    <a ng-href="{{project.website}}">Website</a>
+                                </p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">{{project.name}}
+                                    <i class="material-icons right">close</i>
+                                </span>
+                                <p>{{project.text}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
+            </div>
+            <div ng-hide="state != 'Teams'">
+                <h5 class="center hide-on-large-only">{{state}}</h5>
+                <div class="row">
+                    <div class="col s12 m4" ng-repeat="team in person.teams">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" ng-src="{{team.image}}">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">{{team.name}}
+                                    <i class="material-icons right">more_vert</i>
+                                </span>
+                                <p>
+                                    <a ng-href="{{team.website}}">Website</a>
+                                </p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">{{team.name}}
+                                    <i class="material-icons right">close</i>
+                                </span>
+                                <p>{{team.text}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-hide="state != 'Events'">
+                <h5 class="center hide-on-large-only">{{state}}</h5>
+
+                <div class="row">
+                    <div class="col s12 m4" ng-repeat="event in person.events">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" ng-src="{{event.image}}">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">{{event.name}}
+                                    <i class="material-icons right">more_vert</i>
+                                </span>
+                                <p>
+                                    <a ng-href="{{event.website}}">Website</a>
+                                </p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">{{event.name}}
+                                    <i class="material-icons right">close</i>
+                                </span>
+                                <p>{{event.text}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
 
-    </main>
-    <footer class="page-footer teal darken-3">
+    </div>
 
-        <!-- <div class="container">
+</main>
+<footer class="page-footer teal darken-3">
+
+    <!-- <div class="container">
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">Footer Content</h5>
@@ -281,99 +311,42 @@
             </div>
         </div>
     </div> -->
-        <div class="footer-copyright">
-            <div class="container">
-                <strong>© 2016 Copyright Text
-                </strong>
-                <a class="grey-text text-lighten-4 right" href="#">
-                    <strong>More Links</strong>
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Dropdown Structure -->
-    <ul id="aboutDropDown" class="dropdown-content" ng-controller="navController">
-        <li ng-repeat="tab in accountTabs">
-            <a href="#" ng-click="setTabState(tab.name)">
-                <strong>{{tab.name}}</strong>
+    <div class="footer-copyright">
+        <div class="container">
+            <strong>© 2016 Copyright Text
+            </strong>
+            <a class="grey-text text-lighten-4 right" href="#">
+                <strong>More Links</strong>
             </a>
-        </li>
-
-    </ul>
-
-    <ul id="nav-mobile" class="side-nav fixed" ng-controller="personController">
-        <div class="container center top-pad20" >
-            <img class="circle responsive-img" ng-src="{{person.image}}">
         </div>
-        <h4 class="center">{{person.firstName + ' ' + person.lastName}}</h4>
-        <h6 class="center">{{person.city}}</h6>
-        <h6 class="center">
-            <em>{{person.tagLine}}</em>
-        </h6>
-        <p>
-            <!-- tabState: {{state}} -->
-        </p>
-        <div class="top-pad20"></div>
+    </div>
+</footer>
 
-        <ul>
-            <li class="no-padding hide-on-large-only">
-                <ul class="collapsible collapsible-accordion">
-                    <li class="bold">
-                        <a class="waves-effect waves-teal">Home</a>
-                        <a class="collapsible-header  waves-effect waves-teal">About
-                            {{person.firstName}}</a>
-                        <div class="collapsible-body" ng-controller="navController">
-                            <ul>
-                                <li ng-repeat="info in personTabs">
-                                    <a href="#" ng-click="setTabState(info.name)">{{info.name}}</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li class="no-padding hide-on-large-only">
-                <ul class="collapsible collapsible-accordion">
-                    <li class="bold">
-                        <a class="collapsible-header  waves-effect waves-teal">Contact</a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li>
-                                    <a ng-show="person.github" ng-href="{{person.github}}">Github</a>
-                                </li>
-                                <li>
-                                    <a ng-show="person.facebook" ng-href="{{person.facebook}}">Facebook</a>
-                                </li>
-                                <li>
-                                    <a ng-show="person.twitter" ng-href="{{person.twitter}}">Twitter</a>
-                                </li>
-                                <li>
-                                    <a ng-show="person.email" ng-href="mailto:{{person.email}}">E-mail</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <li class="no-padding top-pad20">
-                <a class="waves-effect waves-light btn white-text">
-                    <i class="material-icons right">cloud</i>follow</a>
-            </li>
-        </ul>
-    </ul>
+<!-- Dropdown Structure -->
+<ul id="aboutDropDown" class="dropdown-content" ng-controller="navController">
+    <li ng-repeat="tab in accountTabs">
+        <a href="#" ng-click="setTabState(tab.name)">
+            <strong>{{tab.name}}</strong>
+        </a>
+    </li>
 
+</ul>
 
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript">
-        // Initialize collapse button
-        $(".button-collapse").sideNav();
-        // Show sideNav $('.button-collapse').sideNav('show'); // Hide sideNav $('.button-collapse').sideNav('hide');
-        $('ul.tabs').tabs();
-        $(".dropdown-button").dropdown();
-    </script>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript">
+
+// Initialize collapse button
+$(".button-collapse").sideNav();
+$('ul.tabs').tabs();
+$(".dropdown-button").dropdown();
+
+$("#nav-menu").click(function() {
+    $(".button-collapse").sideNav('show');
+    console.log('It was clicked!')
+});
+</script>
 </body>
 
 </html>

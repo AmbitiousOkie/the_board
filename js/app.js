@@ -1,4 +1,4 @@
-var boardApp = angular.module('boardApp', []);
+var boardApp = angular.module('boardApp', ['ngLoadScript']);
 
 boardApp.factory('stateService', function() {
 
