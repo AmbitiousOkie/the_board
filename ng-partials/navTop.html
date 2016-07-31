@@ -12,7 +12,7 @@
         <ul class="right hide-on-med-and-down right-pad30">
 
             <li ng-repeat="navTab in navTabs | filter:true">
-                <a href="#">
+                <a ng-href="{{navTab.url}}">
                     <strong>
                         {{navTab.name}}
                     </strong>
@@ -37,7 +37,7 @@
 <!-- Dropdown Structure -->
 <ul id="aboutDropDown" class="dropdown-content" ng-controller="navController">
     <li ng-repeat="tab in accountTabs">
-        <a href="#" ng-click="setTabState(tab.name)">
+        <a ng-href="{{tab.url}}" ng-click="setTabState(tab.name)">
             <strong>{{tab.name}}</strong>
         </a>
     </li>

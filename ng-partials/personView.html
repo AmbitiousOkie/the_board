@@ -107,95 +107,94 @@
                         <p>
                             {{person.bio.text}}
                         </p>
-                    </h5>
-                </div>
-                <div class="card-action">
-                    <a ng-href="{{person.bio.website}}">Personal Site</a>
+                    </div>
+                    <div class="card-action">
+                        <a ng-href="{{person.bio.website}}">Personal Site</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <div ng-hide="state != 'Projects'">
-<h5 class="center hide-on-large-only">{{state}}</h5>
-<div class="row">
-    <div class="col s12 m4" ng-repeat="project in person.projects">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" ng-src="{{project.image}}">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">{{project.name}}
-                    <i class="material-icons right">more_vert</i>
-                </span>
-                <p>
-                    <a ng-href="{{project.website}}">Website</a>
-                </p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">{{project.name}}
-                    <i class="material-icons right">close</i>
-                </span>
-                <p>{{project.text}}</p>
+    <h5 class="center hide-on-large-only">{{state}}</h5>
+    <div class="row">
+        <div class="col s12 m4" ng-repeat="project in person.projects">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" ng-src="{{project.image}}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{project.name}}
+                        <i class="material-icons right">more_vert</i>
+                    </span>
+                    <p>
+                        <a ng-href="{{project.website}}">Website</a>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{project.name}}
+                        <i class="material-icons right">close</i>
+                    </span>
+                    <p>{{project.text}}</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 </div>
 <div ng-hide="state != 'Teams'">
-<h5 class="center hide-on-large-only">{{state}}</h5>
-<div class="row">
-    <div class="col s12 m4" ng-repeat="team in person.teams">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" ng-src="{{team.image}}">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">{{team.name}}
-                    <i class="material-icons right">more_vert</i>
-                </span>
-                <p>
-                    <a ng-href="{{team.website}}">Website</a>
-                </p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">{{team.name}}
-                    <i class="material-icons right">close</i>
-                </span>
-                <p>{{team.text}}</p>
+    <h5 class="center hide-on-large-only">{{state}}</h5>
+    <div class="row">
+        <div class="col s12 m4" ng-repeat="team in person.teams">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" ng-src="{{team.image}}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{team.name}}
+                        <i class="material-icons right">more_vert</i>
+                    </span>
+                    <p>
+                        <a ng-href="{{team.website}}">Website</a>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{team.name}}
+                        <i class="material-icons right">close</i>
+                    </span>
+                    <p>{{team.text}}</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <div ng-hide="state != 'Events'">
-<h5 class="center hide-on-large-only">{{state}}</h5>
+    <h5 class="center hide-on-large-only">{{state}}</h5>
 
-<div class="row">
-    <div class="col s12 m4" ng-repeat="event in person.events">
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" ng-src="{{event.image}}">
-            </div>
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">{{event.name}}
-                    <i class="material-icons right">more_vert</i>
-                </span>
-                <p>
-                    <a ng-href="{{event.website}}">Website</a>
-                </p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">{{event.name}}
-                    <i class="material-icons right">close</i>
-                </span>
-                <p>{{event.text}}</p>
+    <div class="row">
+        <div class="col s12 m4" ng-repeat="event in person.events">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" ng-src="{{event.image}}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{event.name}}
+                        <i class="material-icons right">more_vert</i>
+                    </span>
+                    <p>
+                        <a ng-href="{{event.website}}">Website</a>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{event.name}}
+                        <i class="material-icons right">close</i>
+                    </span>
+                    <p>{{event.text}}</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 </div>

@@ -6,10 +6,13 @@ boardApp.factory('navService', function() {
 
     var accountTabs = [{
         name: 'Profile',
+        url: 'profile.html'
     }, {
-        name: 'Settings'
+        name: 'Settings',
+        url: 'settings.html'
     }, {
-        name: 'Sign Out'
+        name: 'Sign Out',
+        url: 'logoff.html'
     }];
 
     var navTabs = [{
@@ -19,23 +22,23 @@ boardApp.factory('navService', function() {
     }, {
         name: 'About',
         showTop: false,
-        url: '#'
+        url: 'about.html'
     }, {
         name: 'People',
         showTop: true,
-        url: 'team'
+        url: 'people.html'
     }, {
         name: 'Teams',
         showTop: true,
-        url: 'team'
+        url: 'teams.html'
     }, {
         name: 'Projects',
         showTop: true,
-        url: '#'
+        url: 'projects.html'
     }, {
         name: 'Events',
         showTop: true,
-        url: '#'
+        url: 'events.html'
     }];
 
 

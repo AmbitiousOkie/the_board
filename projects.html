@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="boardApp" ng-cloak>
+
+    <head>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+        <link rel="stylesheet" href="css/board.css" media="screen,projection" charset="utf-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <script src="js/angular.js"></script>
+        <script src="js/javascript-lazy.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/person.js"></script>
+        <script src="js/navtabs.js"></script>
+    </head>
+
+    <body>
+
+        <header>
+            <div ng-controller="navController">
+                <ng-include src="getNavTop()"></ng-include>
+            </div>
+
+            <div ng-controller="personController">
+                <ng-include src="getNavSide()"></ng-include>
+            </div>
+        </header>
+
+        <main class="main blue-grey lighten-5">
+            <div class="container">
+                <div ng-controller="navController">
+                    <ng-include src="getLargeTabs()"></ng-include>
+                </div>
+                <div ng-controller="personController">
+                  <ng-include src="getPersonView()"></ng-include>
+                </div>
+            </div>
+        </main>
+        <div ng-controller="navController">
+            <ng-include src="getFooter()"></ng-include>
+        </div>
+
+        <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript">
+            $(".button-collapse").sideNav();
+            $('ul.tabs').tabs();
+            $(".dropdown-button").dropdown();
+        </script>
+    </body>
+
+</html>

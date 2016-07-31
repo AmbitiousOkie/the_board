@@ -1,12 +1,52 @@
 <ul id="nav-mobile" class="side-nav fixed" ng-controller="personController">
-    <div class="con`tainer center top-pad20">
-        <img class="circle responsive-img top-pad10 left-pad20 right-pad20" ng-src="{{person.image}}">
+    <div class="hide-on-med-and-up">
+      <div class="container center top-pad20">
+          <img class="circle responsive-img top-pad10 left-pad20 right-pad20" ng-src="{{person.image}}">
+      </div>
+      <h4 class="center">{{person.firstName + ' ' + person.lastName}}</h4>
+      <h6 class="center">{{person.city}}</h6>
+      <h6 class="center">
+          <em>{{person.tagLine}}</em>
+      </h6>
     </div>
-    <h4 class="center">{{person.firstName + ' ' + person.lastName}}</h4>
-    <h6 class="center">{{person.city}}</h6>
-    <h6 class="center">
-        <em>{{person.tagLine}}</em>
-    </h6>
+
+    <div class="hide-on-small-and-down hide-on-large-only">
+      <div class="container center top-pad20">
+        <div class="container">
+          <img class="circle responsive-img top-pad10" ng-src="{{person.image}}">
+        </div>
+
+      </div>
+      <h4 class="center">{{person.firstName + ' ' + person.lastName}}</h4>
+      <h6 class="center">{{person.city}}</h6>
+      <h6 class="center">
+          <em>{{person.tagLine}}</em>
+      </h6>
+    </div>
+
+    <div class="hide-on-large-only">
+      <div class="container center top-pad20">
+          <img class="circle responsive-img top-pad10 left-pad20 right-pad20" ng-src="{{person.image}}">
+      </div>
+      <h4 class="center">{{person.firstName + ' ' + person.lastName}}</h4>
+      <h6 class="center">{{person.city}}</h6>
+      <h6 class="center">
+          <em>{{person.tagLine}}</em>
+      </h6>
+    </div>
+
+
+
+    <div class="hide-on-med-and-down">
+      <div class="container center top-pad20">
+          <img class="circle responsive-img top-pad10 left-pad20 right-pad20" ng-src="{{currentPerson.image}}">
+      </div>
+      <h4 class="center">{{currentPerson.firstName + ' ' + currentPerson.lastName}}</h4>
+      <h6 class="center">{{currentPerson.city}}</h6>
+      <h6 class="center">
+          <em>{{currentPerson.tagLine}}</em>
+      </h6>
+    </div>
     <div class="top-pad20"></div>
 
     <ul>

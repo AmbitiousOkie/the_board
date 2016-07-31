@@ -1,6 +1,6 @@
 boardApp.factory('personService', function() {
 
-    var currentPerson = '';
+    var currentPerson = {};
 
     var person = {
         firstName: "Kris",
@@ -182,9 +182,9 @@ boardApp.controller('personController', function personController($scope, stateS
         stateService.setPageState('Person');
     }
 
-    if (personService.getCurrentPerson() != personService.getPerson().ID){
-      personService.setCurrentPerson(personService.getPerson().ID);
-      console.log('Current Person: ' + personService.getCurrentPerson());
+    if (personService.getCurrentPerson().ID != personService.getPerson().ID){
+      personService.setCurrentPerson(personService.getPerson());
+      console.log('Current Person: ' + personService.getCurrentPerson().ID);
     }
 
     $scope.$watch(function() {
@@ -194,6 +194,8 @@ boardApp.controller('personController', function personController($scope, stateS
 
     });
 
+    $scope.currentPerson = personService.getCurrentPerson();
+    console.log($scope.currentPerson);
 
     $scope.tabs = navService.getPersonTabs();
     $scope.person = personService.getPerson();
